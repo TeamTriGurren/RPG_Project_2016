@@ -13,9 +13,9 @@ namespace KyleBull.ItemSystem
 		[SerializeField]string _name;
 		[SerializeField]Sprite _icon;
 
-		ISQuality ()
+		public ISQuality ()
 		{
-			_name = "Common";
+			_name = "Quality";
 			_icon = new Sprite ();
 		}
 
