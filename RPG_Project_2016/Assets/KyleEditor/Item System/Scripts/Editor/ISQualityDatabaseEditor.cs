@@ -80,6 +80,9 @@ namespace KyleBull.ItemSystem.Editor
 				if (selectedItem == null)
 					return;
 
+				if (selectedItem.Name == "")
+					return;
+
 				qualityDatabase.Add (selectedItem);
 				selectedItem = new ISQuality();
 			}

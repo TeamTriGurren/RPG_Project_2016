@@ -15,7 +15,7 @@ namespace KyleBull.ItemSystem
 
 		public ISQuality ()
 		{
-			_name = "Quality";
+			_name = "";
 			_icon = new Sprite ();
 		}
 
