@@ -7,24 +7,11 @@ using System.Collections;
 
 namespace KyleBull.ItemSystem
 {
-	[System.Serializable]
-	public class ISQuality : IISQuality
-	{
-		[SerializeField]string _name;
-		[SerializeField]Sprite _icon;
-
-		public ISQuality ()
-		{
-			_name = "";
-			_icon = new Sprite ();
-		}
-
-		public ISQuality(string name, Sprite icon)
-		{
-			_name = name;
-			_icon = icon;
-		}
-
+	public class ISEquipmentSlot : IISEquipmentSlot {
+		
+		[SerializeField] string _name;
+		[SerializeField] Sprite _icon;
+			
 		public string Name {
 			get {
 				return _name;

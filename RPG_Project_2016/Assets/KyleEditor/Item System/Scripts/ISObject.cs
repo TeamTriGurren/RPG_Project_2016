@@ -14,7 +14,7 @@ namespace KyleBull.ItemSystem
 		[SerializeField]int _value;
 		[SerializeField]ISQuality _quality;
 
-		public string ISName {
+		public string Name {
 			get {
 				return _name;
 			} 
@@ -23,7 +23,7 @@ namespace KyleBull.ItemSystem
 			}
 		}
 
-		public int ISValue {
+		public int Value {
 			get {
 				return _value;
 			} 
@@ -32,7 +32,7 @@ namespace KyleBull.ItemSystem
 			}
 		}
 
-		public Sprite ISIcon {
+		public Sprite Icon {
 			get {
 				return _icon;
 			} 
@@ -41,7 +41,7 @@ namespace KyleBull.ItemSystem
 			}
 		}
 
-		public ISQuality ISQuality {
+		public ISQuality Quality {
 			get {
 				return _quality;
 			} 

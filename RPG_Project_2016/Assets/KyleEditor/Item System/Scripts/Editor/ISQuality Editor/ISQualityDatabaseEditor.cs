@@ -11,7 +11,7 @@ namespace KyleBull.ItemSystem.Editor
 	public partial class ISQualityDatabaseEditor : EditorWindow
 	{
 		ISQualityDatabase qualityDatabase;
-		ISQuality selectedItem;
+//		ISQuality selectedItem;
 		Texture2D selectedTexture;
 		int selectedIndex = -1;
 		Vector2 _scrollPos; //List View class
@@ -47,7 +47,7 @@ namespace KyleBull.ItemSystem.Editor
 				AssetDatabase.Refresh ();
 				
 			}
-			selectedItem = new ISQuality ();
+//			selectedItem = new ISQuality ();
 		}
 
 		void OnGUI ()
@@ -55,40 +55,52 @@ namespace KyleBull.ItemSystem.Editor
 			//The interface for Quality. Calling other functions
 			ListView();
 			//AddQualityToDatabase ();
+			GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true));
+			BottomBar();
+			GUILayout.EndHorizontal ();
 		}
 
-		void AddQualityToDatabase ()
-		{
-			// This Function fills in the interface for Quality
-			//Name
-			//Sprite
-			selectedItem.Name = EditorGUILayout.TextField ("Name: ", selectedItem.Name);
-			if (selectedItem.Icon)
-				selectedTexture = selectedItem.Icon.texture;
-			else
-				selectedTexture = null;
-			//Button to bring up a second menu to select icon.
-			if (GUILayout.Button (selectedTexture, GUILayout.Width (SPRITE_BUTTON_SIZE), GUILayout.Height (SPRITE_BUTTON_SIZE))) {
-				int controllerID = EditorGUIUtility.GetControlID (FocusType.Passive);
-				EditorGUIUtility.ShowObjectPicker<Sprite> (null, true, null, controllerID);
-			}
-
-			string commandName = Event.current.commandName;
-			if (commandName == "ObjectSelectorUpdated") {
-				selectedItem.Icon = (Sprite)EditorGUIUtility.GetObjectPickerObject ();
-				Repaint ();
-			}
-
-			if (GUILayout.Button ("Save Quality")) {
-				if (selectedItem == null)
-					return;
-
-				if (selectedItem.Name == "")
-					return;
-
-				qualityDatabase.Add (selectedItem);
-				selectedItem = new ISQuality();
-			}
+		void BottomBar(){
+			GUILayout.Label("Qualities: " + qualityDatabase.Count);
+			if(GUILayout.Button("Add new"))
+			{
+				qualityDatabase.Add (new ISQuality ());
 		}
+		}
+
+
+//		void AddQualityToDatabase ()
+//		{
+//			// This Function fills in the interface for Quality
+//			//Name
+//			//Sprite
+//			selectedItem.Name = EditorGUILayout.TextField ("Name: ", selectedItem.Name);
+//			if (selectedItem.Icon)
+//				selectedTexture = selectedItem.Icon.texture;
+//			else
+//				selectedTexture = null;
+//			//Button to bring up a second menu to select icon.
+//			if (GUILayout.Button (selectedTexture, GUILayout.Width (SPRITE_BUTTON_SIZE), GUILayout.Height (SPRITE_BUTTON_SIZE))) {
+//				int controllerID = EditorGUIUtility.GetControlID (FocusType.Passive);
+//				EditorGUIUtility.ShowObjectPicker<Sprite> (null, true, null, controllerID);
+//			}
+//
+//			string commandName = Event.current.commandName;
+//			if (commandName == "ObjectSelectorUpdated") {
+//				selectedItem.Icon = (Sprite)EditorGUIUtility.GetObjectPickerObject ();
+//				Repaint ();
+//			}
+//
+//			if (GUILayout.Button ("Save Quality")) {
+//				if (selectedItem == null)
+//					return;
+//
+//				if (selectedItem.Name == "")
+//					return;
+//
+//				qualityDatabase.Add (selectedItem);
+//				selectedItem = new ISQuality();
+//			}
+//		}
 	}
 }

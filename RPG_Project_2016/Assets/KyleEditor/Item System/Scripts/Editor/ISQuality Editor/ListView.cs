@@ -22,10 +22,11 @@ namespace KyleBull.ItemSystem.Editor
 		// Things to display, name, sprite, and a delete function
 		void DisplayQualities ()
 		{
+			
 			for (int i = 0; i < qualityDatabase.Count; i++) {
 				GUILayout.BeginHorizontal ("Box");
 				if (qualityDatabase.Get (i).Icon)
-					selectedTexture = qualityDatabase.Get (i).Icon.texture;
+					selectedTexture = qualityDatabase.Get(i).Icon.texture;
 				else
 					selectedTexture = null;
 				
@@ -39,7 +40,7 @@ namespace KyleBull.ItemSystem.Editor
 				string commandName = Event.current.commandName;
 				if (commandName == "ObjectSelectorUpdated") {
 					if (selectedIndex != -1) {
-						qualityDatabase.Get (selectedIndex).Icon = (Sprite)EditorGUIUtility.GetObjectPickerObject ();
+						qualityDatabase.Get(selectedIndex).Icon = (Sprite)EditorGUIUtility.GetObjectPickerObject ();
 						selectedIndex = -1;
 						Repaint ();
 					}

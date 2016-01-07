@@ -17,11 +17,10 @@ namespace KyleBull.ItemSystem
 		//Quality
 		//QuestItems - Key Items
 
+		string Name{ get; set; }
+		int Value{ get; set; }
+		Sprite Icon{ get; set; }
+		ISQuality Quality { get; set; }
 
-		string ISName{ get; set; }
-
-		int ISValue{ get; set; }
-
-		Sprite ISIcon{ get; set; }
 	}
 }
