@@ -7,6 +7,7 @@ using System.Collections;
 
 namespace KyleBull.ItemSystem
 {
+	[System.Serializable]
 	public class ISObject : IISObject
 	{
 		[SerializeField]string _name;

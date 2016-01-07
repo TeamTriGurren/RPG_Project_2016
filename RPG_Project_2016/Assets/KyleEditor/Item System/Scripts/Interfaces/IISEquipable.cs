@@ -7,8 +7,10 @@ using System.Collections;
 
 namespace KyleBull.ItemSystem
 {
-public interface IISEquipable  {
-		ISEquipmentSlot Equipmentslot{get;}
-		bool Equip();
-}
+	public interface IISEquipable
+	{
+		ISEquipmentSlot Equipmentslot{ get; }
+
+		bool Equip ();
+	}
 }
