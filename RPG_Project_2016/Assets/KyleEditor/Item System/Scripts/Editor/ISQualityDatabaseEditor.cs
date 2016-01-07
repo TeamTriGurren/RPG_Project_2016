@@ -8,11 +8,13 @@ using UnityEditor;
 
 namespace KyleBull.ItemSystem.Editor
 {
-	public class ISQualityDatabaseEditor : EditorWindow
+	public partial class ISQualityDatabaseEditor : EditorWindow
 	{
 		ISQualityDatabase qualityDatabase;
 		ISQuality selectedItem;
 		Texture2D selectedTexture;
+		int selectedIndex = -1;
+		Vector2 _scrollPos; //List View class
 
 		const int SPRITE_BUTTON_SIZE = 46;
 		const string DATABASE_FILE_NAME = @"QualityDatabase.asset";
@@ -51,7 +53,8 @@ namespace KyleBull.ItemSystem.Editor
 		void OnGUI ()
 		{
 			//The interface for Quality. Calling other functions
-			AddQualityToDatabase ();
+			ListView();
+			//AddQualityToDatabase ();
 		}
 
 		void AddQualityToDatabase ()
