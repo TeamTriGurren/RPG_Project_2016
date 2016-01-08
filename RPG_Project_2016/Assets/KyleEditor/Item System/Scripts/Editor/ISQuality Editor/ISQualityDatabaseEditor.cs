@@ -23,7 +23,7 @@ namespace KyleBull.ItemSystem.Editor
 		const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
 
 		// MenuItem code lets you assign a keyboard function, CTRL SHIFT Q in this case
-		[MenuItem ("Editor/Database/Quality Editor %#Q")]
+		[MenuItem ("Editor/Database/Quality Editor %Q")]
 		// Controls the size of your Quality box.
 		public static void Init ()
 		{
@@ -37,8 +37,8 @@ namespace KyleBull.ItemSystem.Editor
 		// This part of the code makes sure a folder is created. If it isnt it makes one.
 		void OnEnable ()
 		{
-			qualityDatabase = ScriptableObject.CreateInstance<ISQualityDatabase>();
-			qualityDatabase = qualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
+			if (qualityDatabase ==null)
+			qualityDatabase = ISQualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
 		}
 
 		void OnGUI ()

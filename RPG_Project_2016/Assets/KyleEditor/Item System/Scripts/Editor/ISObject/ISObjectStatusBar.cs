@@ -12,6 +12,8 @@ namespace KyleBull.ItemSystem.Editor
 		void BottomStatusBar(){
 			GUILayout.BeginHorizontal ("Box", GUILayout.ExpandWidth (true));
 			GUILayout.Label ("Bottom Status Bar");
+
+			DisplayButtons();
 			GUILayout.EndHorizontal ();
 		}
 

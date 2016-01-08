@@ -8,7 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84a1b024cecf0dc44ae7636887836d9f, type: 3}
-  m_Name: QualityDatabase
+  m_Script: {fileID: 11500000, guid: 7e5789c6d2ac0bb4ea1e48088c9655ce, type: 3}
+  m_Name: WeaponsDatabase
   m_EditorClassIdentifier: 
   database: []

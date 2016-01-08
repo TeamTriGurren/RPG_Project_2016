@@ -54,7 +54,7 @@ namespace KyleBull
 			EditorUtility.SetDirty (this);
 		}
 
-		public U GetDatabase<U>(string dbPath, string dbName) where U: ScriptableObject
+		public static U GetDatabase<U>(string dbPath, string dbName) where U: ScriptableObject
 		{
 			string dbFullPath = @"Assets/" + dbPath + "/" + dbName;
 			// Checks to see if folder exists O_O!

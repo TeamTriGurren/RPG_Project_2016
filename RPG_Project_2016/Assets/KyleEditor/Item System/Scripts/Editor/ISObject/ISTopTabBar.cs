@@ -13,7 +13,7 @@ namespace KyleBull.ItemSystem.Editor
 
 		void TopTabBar ()
 		{
-			GUILayout.BeginHorizontal ("Box", GUILayout.ExpandWidth (true));
+			GUILayout.BeginHorizontal ( GUILayout.ExpandWidth (true));
 			WeaponTab ();
 			ArmorTab ();
 			ItemsTab ();

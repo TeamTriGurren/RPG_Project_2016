@@ -10,9 +10,15 @@ namespace KyleBull.ItemSystem.Editor
 {
 	public partial class ISObjectEditor : EditorWindow
 	{
+		ISWeaponDatabase database;
+		const int SPRITE_BUTTON_SIZE = 46;
+		const string DATABASE_NAME = @"WeaponsDatabase.asset";
+		const string DATABASE_PATH = @"Database";
+		const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
+
 
 		// MenuItem code lets you assign a keyboard function, CTRL SHIFT Q in this case
-		[MenuItem ("Editor/Database/Item Editor %#i")]
+		[MenuItem("Editor/Database/Item Editor %i")]
 		// Controls the size of your Item  box.
 		public static void Init ()
 		{
@@ -25,6 +31,8 @@ namespace KyleBull.ItemSystem.Editor
 
 		void OnEnable ()
 		{
+			if (database == null)
+				database = ISWeaponDatabase.GetDatabase<ISWeaponDatabase> (DATABASE_PATH, DATABASE_NAME);
 		}
 
 		void OnGUI ()
@@ -35,7 +43,6 @@ namespace KyleBull.ItemSystem.Editor
 			ListView ();
 			ItemDetails ();
 			GUILayout.EndHorizontal ();
-
 			BottomStatusBar ();
 		}
 	}

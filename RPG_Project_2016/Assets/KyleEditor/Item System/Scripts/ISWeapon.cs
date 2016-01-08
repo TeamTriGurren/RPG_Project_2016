@@ -3,6 +3,7 @@
 // Item System
 
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 namespace KyleBull.ItemSystem
@@ -19,7 +20,6 @@ namespace KyleBull.ItemSystem
 		public ISWeapon()
 		{
 			_equipmentSlot = new ISEquipmentSlot ();
-			_prefab = new GameObject ();
 		}
 
 		public ISWeapon(int durability, int maxDurability, ISEquipmentSlot equipmentSlot, GameObject prefab)
@@ -96,6 +96,11 @@ namespace KyleBull.ItemSystem
 			get {
 				return _prefab;	
 			}
+		}
+
+		public void OnGUI(){
+			Name = EditorGUILayout.TextField ("Name: ", Name);
+
 		}
 
 	}

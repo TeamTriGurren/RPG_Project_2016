@@ -5,8 +5,7 @@
 using UnityEngine;
 using UnityEditor;
 using System.Collections;
-using System.Collections.Generic;
-using System.Linq; // needed for Element
+
 
 namespace KyleBull.ItemSystem
 {
