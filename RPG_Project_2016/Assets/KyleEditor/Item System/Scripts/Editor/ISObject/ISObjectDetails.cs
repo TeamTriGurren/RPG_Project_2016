@@ -23,7 +23,9 @@ namespace KyleBull.ItemSystem.Editor
 
 		void DisplayNewWeapon ()
 		{
+            GUILayout.BeginVertical();
 			tempWeapon.OnGUI ();
+            GUILayout.EndVertical();
 		}
 
 		void DisplayButtons ()

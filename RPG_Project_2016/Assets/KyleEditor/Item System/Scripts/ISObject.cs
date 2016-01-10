@@ -3,6 +3,7 @@
 // Item System
 
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 namespace KyleBull.ItemSystem
@@ -50,5 +51,28 @@ namespace KyleBull.ItemSystem
 				_quality = value;
 			}
 		}
+
+
+       //  This is what will display under weapon. Class later
+        public virtual void OnGUI()
+        {
+            GUILayout.BeginVertical();
+            _name = EditorGUILayout.TextField("Name", _name);
+            DisplayIcon();
+            DisplayQuality();
+            _value = EditorGUILayout.IntField("Value", _value);
+           ;
+            GUILayout.EndVertical();
+
+        }
+        public void DisplayIcon()
+        {
+            GUILayout.Label("Icon: ");
+        }
+
+        public void DisplayQuality()
+        {
+            GUILayout.Label("Quality: ");
+        }
 	}
 }
