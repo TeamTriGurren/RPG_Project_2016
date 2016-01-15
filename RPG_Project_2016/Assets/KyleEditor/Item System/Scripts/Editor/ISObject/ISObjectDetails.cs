@@ -41,11 +41,11 @@ namespace KyleBull.ItemSystem.Editor
 				if (GUILayout.Button ("Save"))
 				{
 					showNewWeapon = false;
-//					ISQualityDatabase qdb;
-//					string DATABASE_NAME = @"QualityDatabase.asset";
-//					string DATABASE_PATH = @"Database";
-//					qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
-//					tempWeapon.Quality = qdb.Get (tempWeapon.SelectedQualityID);
+					ISQualityDatabase qdb;
+					string DATABASE_NAME = @"QualityDatabase.asset";
+					string DATABASE_PATH = @"Database";
+					qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
+					tempWeapon.Quality = qdb.Get (tempWeapon.SelectedQualityID);
 					database.Add (tempWeapon);
 					tempWeapon = null;
 				}

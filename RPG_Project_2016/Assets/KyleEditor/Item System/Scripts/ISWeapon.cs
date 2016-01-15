@@ -116,7 +116,8 @@ namespace KyleBull.ItemSystem
 
 		public void DisplayPrefab()
 		{
-			GUILayout.Label("Prefab: Still on todo");
+			_prefab = EditorGUILayout.ObjectField ("Prefab: ", _prefab, typeof(GameObject), true) as GameObject;
+
 		}
 
 	}

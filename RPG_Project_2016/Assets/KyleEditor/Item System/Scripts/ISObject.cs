@@ -95,7 +95,7 @@ namespace KyleBull.ItemSystem
 		public void DisplayQuality()
 		{
 			qualitySelectedIndex = EditorGUILayout.Popup ("Quality", qualitySelectedIndex, options);
-			_quality = qdb.Get (SelectedQualityID);
+	//		_quality = qdb.Get (SelectedQualityID);
 		}
 	}
 }
