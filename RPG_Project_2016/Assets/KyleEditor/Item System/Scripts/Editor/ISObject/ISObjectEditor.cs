@@ -26,6 +26,7 @@ namespace KyleBull.ItemSystem.Editor
 			window.minSize = new Vector2 (800, 600);
 			GUIContent titleContent = new GUIContent ("Item Maker");
 			window.titleContent = titleContent;
+			//window.titleContent = new GUIContent can have image
 			window.Show ();
 		}
 

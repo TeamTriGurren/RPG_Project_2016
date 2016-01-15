@@ -17,6 +17,8 @@ namespace KyleBull.ItemSystem
 		[SerializeField] ISEquipmentSlot _equipmentSlot;
 		[SerializeField] GameObject _prefab;
 
+		public EquipmentSlot equipmentSlot;
+
 		public ISWeapon()
 		{
 			_equipmentSlot = new ISEquipmentSlot ();
@@ -78,13 +80,7 @@ namespace KyleBull.ItemSystem
 				return _maxDurability;
 			}
 		}
-
-
-
-		public bool Equip ()
-		{
-			throw new System.NotImplementedException ();
-		}
+			
 
 		public ISEquipmentSlot Equipmentslot {
 			get {
@@ -101,7 +97,7 @@ namespace KyleBull.ItemSystem
 		public override void OnGUI(){
 			base.OnGUI ();
 			DisplayPrefab();
-			DisplayEquipmentslot();
+			DisplayEquipmentSlot();
 
 			_minDamage = System.Convert.ToInt32(EditorGUILayout.TextField ("Damage:  ", _minDamage.ToString()));
 			_durability = System.Convert.ToInt32(EditorGUILayout.TextField ("Durability: ", _durability.ToString()));
@@ -109,9 +105,9 @@ namespace KyleBull.ItemSystem
 
 		}
 
-		public void DisplayEquipmentslot()
+		public void DisplayEquipmentSlot()
 		{
-			GUILayout.Label("Equipmet slot: Still on todo");
+			equipmentSlot = (EquipmentSlot)EditorGUILayout.EnumPopup ("Equipment Slot", equipmentSlot);
 		}
 
 		public void DisplayPrefab()

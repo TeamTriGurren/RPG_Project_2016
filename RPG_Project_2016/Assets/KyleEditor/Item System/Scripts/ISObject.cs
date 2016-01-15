@@ -89,12 +89,12 @@ namespace KyleBull.ItemSystem
 
 
 		public void DisplayIcon(){
-			GUILayout.Label("Icon: To do");
+			GUILayout.Label("Icon: ");
 		}
 
 		public void DisplayQuality()
 		{
-			qualitySelectedIndex = EditorGUILayout.Popup ("Quality", qualitySelectedIndex, options);
+			qualitySelectedIndex = EditorGUILayout.Popup ("Quality: ", qualitySelectedIndex, options);
 	//		_quality = qdb.Get (SelectedQualityID);
 		}
 	}
