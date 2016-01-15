@@ -23,7 +23,9 @@ namespace KyleBull.ItemSystem.Editor
 
 		void DisplayNewWeapon ()
 		{
+			GUILayout.BeginVertical ();
 			tempWeapon.OnGUI ();
+			GUILayout.EndVertical ();
 		}
 
 		void DisplayButtons ()
@@ -34,18 +36,28 @@ namespace KyleBull.ItemSystem.Editor
 					showNewWeapon = true;
 				}
 			} 
-			if (showNewWeapon) {
-				if (GUILayout.Button ("Save")) {
+			else 
+			{
+				if (GUILayout.Button ("Save"))
+				{
 					showNewWeapon = false;
+//					ISQualityDatabase qdb;
+//					string DATABASE_NAME = @"QualityDatabase.asset";
+//					string DATABASE_PATH = @"Database";
+//					qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
+//					tempWeapon.Quality = qdb.Get (tempWeapon.SelectedQualityID);
+					database.Add (tempWeapon);
 					tempWeapon = null;
 				}
 
-				if (GUILayout.Button ("Cancel")) {
+				if (GUILayout.Button ("Cancel"))
+				{
 					showNewWeapon = false;
 					tempWeapon = null;
 				}
 			}
 		}
 	}
-
 }
+
+

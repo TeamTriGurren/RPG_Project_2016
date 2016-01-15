@@ -11,4 +11,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5789c6d2ac0bb4ea1e48088c9655ce, type: 3}
   m_Name: WeaponsDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: ad
+    _icon: {fileID: 0}
+    _value: 4
+    _quality:
+      _name: jaklfjd
+      _icon: {fileID: 21300000, guid: 827c9cd4a3943534f909ac6473e17288, type: 3}
+    _minDamage: 4
+    _durability: 4
+    _maxDurability: 4
+    _prefab: {fileID: 0}
+  - _name: adaf
+    _icon: {fileID: 0}
+    _value: 3
+    _quality:
+      _name: dkjafl
+      _icon: {fileID: 21300000, guid: a3983c59ebf804b4abba687bd7c9e92f, type: 3}
+    _minDamage: 4
+    _durability: 5
+    _maxDurability: 6
+    _prefab: {fileID: 0}

@@ -98,9 +98,25 @@ namespace KyleBull.ItemSystem
 			}
 		}
 
-		public void OnGUI(){
-			Name = EditorGUILayout.TextField ("Name: ", Name);
+		public override void OnGUI(){
+			base.OnGUI ();
+			DisplayPrefab();
+			DisplayEquipmentslot();
 
+			_minDamage = System.Convert.ToInt32(EditorGUILayout.TextField ("Damage:  ", _minDamage.ToString()));
+			_durability = System.Convert.ToInt32(EditorGUILayout.TextField ("Durability: ", _durability.ToString()));
+			_maxDurability = System.Convert.ToInt32(EditorGUILayout.TextField ("Max Durability: ", _maxDurability.ToString()));
+
+		}
+
+		public void DisplayEquipmentslot()
+		{
+			GUILayout.Label("Equipmet slot: Still on todo");
+		}
+
+		public void DisplayPrefab()
+		{
+			GUILayout.Label("Prefab: Still on todo");
 		}
 
 	}

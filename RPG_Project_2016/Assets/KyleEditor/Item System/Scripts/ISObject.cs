@@ -3,6 +3,7 @@
 // Item System
 
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 namespace KyleBull.ItemSystem
@@ -49,6 +50,52 @@ namespace KyleBull.ItemSystem
 			set {
 				_quality = value;
 			}
+		}
+		// Future class
+		//
+
+		int qualitySelectedIndex = 0;
+		string [] options; 
+		ISQualityDatabase qdb;
+
+	
+		virtual public void  OnGUI ()
+		{
+			GUILayout.BeginVertical ();
+			_name = EditorGUILayout.TextField ("Name: ", _name);
+			DisplayQuality ();
+			DisplayIcon ();
+			_value = System.Convert.ToInt32(EditorGUILayout.TextField ("Value: ", _value.ToString()));
+			GUILayout.EndVertical ();
+
+		}
+		public int SelectedQualityID {
+			get {
+				return qualitySelectedIndex;
+			}
+		}
+
+		public ISObject()
+		{
+			 string DATABASE_NAME = @"QualityDatabase.asset";
+			 string DATABASE_PATH = @"Database";
+			qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
+
+			options = new string[qdb.Count];
+			for (int i = 0; i < qdb.Count; i++) {
+				options [i] = qdb.Get (i).Name;
+			}
+		}
+
+
+		public void DisplayIcon(){
+			GUILayout.Label("Icon: To do");
+		}
+
+		public void DisplayQuality()
+		{
+			qualitySelectedIndex = EditorGUILayout.Popup ("Quality", qualitySelectedIndex, options);
+			_quality = qdb.Get (SelectedQualityID);
 		}
 	}
 }
