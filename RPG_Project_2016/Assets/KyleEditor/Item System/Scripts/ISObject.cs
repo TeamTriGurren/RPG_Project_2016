@@ -51,56 +51,11 @@ namespace KyleBull.ItemSystem
 				_quality = value;
 			}
 		}
-<<<<<<< HEAD
 
 
-       //  This is what will display under weapon. Class later
-        ISQualityDatabase qdb;
-        int qualitySelectedIndex = 0;
-        string[] options;
-        
-        public virtual void OnGUI()
-        {
-            GUILayout.BeginVertical();
-            _name = EditorGUILayout.TextField("Name", _name);
-            DisplayIcon();
-            DisplayQuality();
-            _value = EditorGUILayout.IntField("Value", _value);
-            GUILayout.EndVertical();
 
-        }
-        public void DisplayIcon()
-        {
-            GUILayout.Label("Icon: ");
-        }
 
-        public int SelectedQualityID
-        {
-            get {
-                return qualitySelectedIndex;
-            }
-        }
 
-        public ISObject ()
-        {
-            string DATABASE_NAME = @"QualityDatabase.asset";
-             string DATABASE_PATH = @"Database";
-             qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase>(DATABASE_PATH, DATABASE_NAME);
-
-             options = new string[qdb.Count];
-            for(int i = 0; i <qdb.Count; i++)
-            {
-                options[i] = qdb.Get(i).Name;
-            }
-        }
-
-       
-        public void DisplayQuality()
-        {
-           qualitySelectedIndex = EditorGUILayout.Popup("Quality", qualitySelectedIndex, options);
-           _quality = qdb.Get(SelectedQualityID);
-        }
-=======
 		// Future class
 		//
 
@@ -139,14 +94,15 @@ namespace KyleBull.ItemSystem
 
 
 		public void DisplayIcon(){
-			GUILayout.Label("Icon: ");
+            _icon = EditorGUILayout.ObjectField("Icon: ", _icon, typeof(Sprite), false) as Sprite;
 		}
 
 		public void DisplayQuality()
 		{
 			qualitySelectedIndex = EditorGUILayout.Popup ("Quality: ", qualitySelectedIndex, options);
-	//		_quality = qdb.Get (SelectedQualityID);
+	    	_quality = qdb.Get (SelectedQualityID);
 		}
->>>>>>> 48e102c21c0adb5ea1466fffe7acb36a297f8ea0
-	}
+
+
+    }
 }

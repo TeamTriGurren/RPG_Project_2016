@@ -94,8 +94,6 @@ namespace KyleBull.ItemSystem
 			}
 		}
 
-<<<<<<< HEAD
-=======
 		public override void OnGUI(){
 			base.OnGUI ();
 			DisplayPrefab();
@@ -112,31 +110,9 @@ namespace KyleBull.ItemSystem
 			equipmentSlot = (EquipmentSlot)EditorGUILayout.EnumPopup ("Equipment Slot", equipmentSlot);
 		}
 
-		public void DisplayPrefab()
-		{
-			_prefab = EditorGUILayout.ObjectField ("Prefab: ", _prefab, typeof(GameObject), true) as GameObject;
->>>>>>> 48e102c21c0adb5ea1466fffe7acb36a297f8ea0
-
-
-        //  Buttom two functions to be filled out. Place holders.
-        public override void OnGUI()
-        {
-            base.OnGUI();
-            _minDamage = System.Convert.ToInt32(EditorGUILayout.TextField("Damage", _minDamage.ToString()));
-            _durability = System.Convert.ToInt32(EditorGUILayout.TextField("Durability", _durability.ToString()));
-            _maxDurability = System.Convert.ToInt32(EditorGUILayout.TextField("Max Durability", _maxDurability.ToString()));
-            DisplayEquipmentSlot();
-            DisplayPrefab();
-        }
-
-        public void DisplayEquipmentSlot()
-        {
-            GUILayout.Label("Equipment Slot");
-        }
-
         public void DisplayPrefab()
         {
-            GUILayout.Label("Prefab");
+            _prefab = EditorGUILayout.ObjectField("Prefab: ", _prefab, typeof(GameObject), true) as GameObject;
         }
 	}
 }
