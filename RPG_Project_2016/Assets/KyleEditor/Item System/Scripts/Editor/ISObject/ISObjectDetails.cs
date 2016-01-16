@@ -36,9 +36,16 @@ namespace KyleBull.ItemSystem.Editor
 					showNewWeapon = true;
 				}
 			} 
-			if (showNewWeapon) {
+			else {
 				if (GUILayout.Button ("Save")) {
 					showNewWeapon = false;
+                    //string DATABASE_NAME = @"QualityDatabase.asset";
+                    //string DATABASE_PATH = @"Database";
+                    //ISQualityDatabase qdb;
+           
+                    //qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase>(DATABASE_PATH, DATABASE_NAME);
+                    //tempWeapon.Quality = qdb.Get(tempWeapon.SelectedQualityID);
+                    database.Add(tempWeapon);
 					tempWeapon = null;
 				}
 
