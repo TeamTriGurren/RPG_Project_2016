@@ -23,9 +23,15 @@ namespace KyleBull.ItemSystem.Editor
 
 		void DisplayNewWeapon ()
 		{
+<<<<<<< HEAD
             GUILayout.BeginVertical();
 			tempWeapon.OnGUI ();
             GUILayout.EndVertical();
+=======
+			GUILayout.BeginVertical ();
+			tempWeapon.OnGUI ();
+			GUILayout.EndVertical ();
+>>>>>>> 48e102c21c0adb5ea1466fffe7acb36a297f8ea0
 		}
 
 		void DisplayButtons ()
@@ -36,6 +42,7 @@ namespace KyleBull.ItemSystem.Editor
 					showNewWeapon = true;
 				}
 			} 
+<<<<<<< HEAD
 			else {
 				if (GUILayout.Button ("Save")) {
 					showNewWeapon = false;
@@ -46,15 +53,30 @@ namespace KyleBull.ItemSystem.Editor
                     //qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase>(DATABASE_PATH, DATABASE_NAME);
                     //tempWeapon.Quality = qdb.Get(tempWeapon.SelectedQualityID);
                     database.Add(tempWeapon);
+=======
+			else 
+			{
+				if (GUILayout.Button ("Save"))
+				{
+					showNewWeapon = false;
+					ISQualityDatabase qdb;
+					string DATABASE_NAME = @"QualityDatabase.asset";
+					string DATABASE_PATH = @"Database";
+					qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
+					tempWeapon.Quality = qdb.Get (tempWeapon.SelectedQualityID);
+					database.Add (tempWeapon);
+>>>>>>> 48e102c21c0adb5ea1466fffe7acb36a297f8ea0
 					tempWeapon = null;
 				}
 
-				if (GUILayout.Button ("Cancel")) {
+				if (GUILayout.Button ("Cancel"))
+				{
 					showNewWeapon = false;
 					tempWeapon = null;
 				}
 			}
 		}
 	}
-
 }
+
+

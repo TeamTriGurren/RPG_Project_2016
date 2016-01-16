@@ -17,6 +17,8 @@ namespace KyleBull.ItemSystem
 		[SerializeField] ISEquipmentSlot _equipmentSlot;
 		[SerializeField] GameObject _prefab;
 
+		public EquipmentSlot equipmentSlot;
+
 		public ISWeapon()
 		{
 			_equipmentSlot = new ISEquipmentSlot ();
@@ -78,13 +80,7 @@ namespace KyleBull.ItemSystem
 				return _maxDurability;
 			}
 		}
-
-
-
-		public bool Equip ()
-		{
-			throw new System.NotImplementedException ();
-		}
+			
 
 		public ISEquipmentSlot Equipmentslot {
 			get {
@@ -98,6 +94,28 @@ namespace KyleBull.ItemSystem
 			}
 		}
 
+<<<<<<< HEAD
+=======
+		public override void OnGUI(){
+			base.OnGUI ();
+			DisplayPrefab();
+			DisplayEquipmentSlot();
+
+			_minDamage = System.Convert.ToInt32(EditorGUILayout.TextField ("Damage:  ", _minDamage.ToString()));
+			_durability = System.Convert.ToInt32(EditorGUILayout.TextField ("Durability: ", _durability.ToString()));
+			_maxDurability = System.Convert.ToInt32(EditorGUILayout.TextField ("Max Durability: ", _maxDurability.ToString()));
+
+		}
+
+		public void DisplayEquipmentSlot()
+		{
+			equipmentSlot = (EquipmentSlot)EditorGUILayout.EnumPopup ("Equipment Slot", equipmentSlot);
+		}
+
+		public void DisplayPrefab()
+		{
+			_prefab = EditorGUILayout.ObjectField ("Prefab: ", _prefab, typeof(GameObject), true) as GameObject;
+>>>>>>> 48e102c21c0adb5ea1466fffe7acb36a297f8ea0
 
 
         //  Buttom two functions to be filled out. Place holders.

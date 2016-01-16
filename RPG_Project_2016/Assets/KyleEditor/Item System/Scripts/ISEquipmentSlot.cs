@@ -11,6 +11,8 @@ namespace KyleBull.ItemSystem
 		
 		[SerializeField] string _name;
 		[SerializeField] Sprite _icon;
+
+
 			
 		public ISEquipmentSlot()
 		{

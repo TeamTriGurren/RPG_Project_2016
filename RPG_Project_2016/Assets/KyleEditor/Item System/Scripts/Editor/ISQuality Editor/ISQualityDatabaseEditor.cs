@@ -20,7 +20,7 @@ namespace KyleBull.ItemSystem.Editor
 		const int SPRITE_BUTTON_SIZE = 46;
 		const string DATABASE_NAME = @"QualityDatabase.asset";
 		const string DATABASE_PATH = @"Database";
-		const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
+		//const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
 
 		// MenuItem code lets you assign a keyboard function, CTRL SHIFT Q in this case
 		[MenuItem ("Editor/Database/Quality Editor %Q")]

@@ -51,6 +51,7 @@ namespace KyleBull.ItemSystem
 				_quality = value;
 			}
 		}
+<<<<<<< HEAD
 
 
        //  This is what will display under weapon. Class later
@@ -99,5 +100,53 @@ namespace KyleBull.ItemSystem
            qualitySelectedIndex = EditorGUILayout.Popup("Quality", qualitySelectedIndex, options);
            _quality = qdb.Get(SelectedQualityID);
         }
+=======
+		// Future class
+		//
+
+		int qualitySelectedIndex = 0;
+		string [] options; 
+		ISQualityDatabase qdb;
+
+	
+		virtual public void  OnGUI ()
+		{
+			GUILayout.BeginVertical ();
+			_name = EditorGUILayout.TextField ("Name: ", _name);
+			DisplayQuality ();
+			DisplayIcon ();
+			_value = System.Convert.ToInt32(EditorGUILayout.TextField ("Value: ", _value.ToString()));
+			GUILayout.EndVertical ();
+
+		}
+		public int SelectedQualityID {
+			get {
+				return qualitySelectedIndex;
+			}
+		}
+
+		public ISObject()
+		{
+			 string DATABASE_NAME = @"QualityDatabase.asset";
+			 string DATABASE_PATH = @"Database";
+			qdb = ISQualityDatabase.GetDatabase<ISQualityDatabase> (DATABASE_PATH, DATABASE_NAME);
+
+			options = new string[qdb.Count];
+			for (int i = 0; i < qdb.Count; i++) {
+				options [i] = qdb.Get (i).Name;
+			}
+		}
+
+
+		public void DisplayIcon(){
+			GUILayout.Label("Icon: ");
+		}
+
+		public void DisplayQuality()
+		{
+			qualitySelectedIndex = EditorGUILayout.Popup ("Quality: ", qualitySelectedIndex, options);
+	//		_quality = qdb.Get (SelectedQualityID);
+		}
+>>>>>>> 48e102c21c0adb5ea1466fffe7acb36a297f8ea0
 	}
 }

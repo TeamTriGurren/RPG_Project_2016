@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Name: QualityDatabase
   m_EditorClassIdentifier: 
   database:
-  - _name: Weak Sauce
-    _icon: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}
-  - _name: Spaghetti
+  - _name: qew
     _icon: {fileID: 21300000, guid: f588d850485d0ae479d73cf3bd0b7b00, type: 3}
-  - _name: three
+  - _name: weq
     _icon: {fileID: 21300000, guid: 49b611e658efbf443b686a4036f74fe3, type: 3}
+  - _name: qeqe
+    _icon: {fileID: 21300000, guid: a94c9a7eb94ceec4a8d67a1890e22e51, type: 3}

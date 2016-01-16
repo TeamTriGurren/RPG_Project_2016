@@ -10,7 +10,6 @@ namespace KyleBull.ItemSystem
 	public interface IISEquipable
 	{
 		ISEquipmentSlot Equipmentslot{ get; }
-
-		bool Equip ();
+	//	bool Equip();
 	}
 }
