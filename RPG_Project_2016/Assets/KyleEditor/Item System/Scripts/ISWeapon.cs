@@ -9,7 +9,7 @@ using System.Collections;
 namespace KyleBull.ItemSystem
 {
 	[System.Serializable]
-	public class ISWeapon : ISObject, IISWeapon, IISDestructable, IISEquipable, IISGameObject
+	public class ISWeapon : ISObject, IISWeapon, IISDestructable,  IISGameObject
 	{
 		[SerializeField] int _minDamage;
 		[SerializeField] int _durability;

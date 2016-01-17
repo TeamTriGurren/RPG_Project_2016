@@ -17,6 +17,9 @@ namespace KyleBull.ItemSystem.Editor
 
 		void ListView ()
 		{
+            if (State != DisplyState.NONE)
+                return;
+
 			_scrollPos = GUILayout.BeginScrollView (_scrollPos, "Box", GUILayout.ExpandHeight (true), GUILayout.Width(_listViewWidth));
 
             for (int i =0; i < database.Count; i ++)

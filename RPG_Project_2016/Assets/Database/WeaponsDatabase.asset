@@ -11,4 +11,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5789c6d2ac0bb4ea1e48088c9655ce, type: 3}
   m_Name: WeaponsDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: 716572716572
+    _icon: {fileID: 0}
+    _value: 0
+    _quality:
+      _name: 61646166
+      _icon: {fileID: 0}
+    qualitySelectedIndex: 0
+    options:
+    - 61646166
+    - 6166646164
+    qdb: {fileID: 0}
+    _minDamage: 0
+    _durability: 0
+    _maxDurability: 0
+    _prefab: {fileID: 0}
+    equipmentSlot: 0
+  - _name: 776572716572
+    _icon: {fileID: 0}
+    _value: 0
+    _quality:
+      _name: 61646166
+      _icon: {fileID: 0}
+    qualitySelectedIndex: 0
+    options:
+    - 61646166
+    - 6166646164
+    qdb: {fileID: 0}
+    _minDamage: 0
+    _durability: 0
+    _maxDurability: 0
+    _prefab: {fileID: 0}
+    equipmentSlot: 2
+  - _name: 616c6b66646a616b6c6a66646c616b
+    _icon: {fileID: 0}
+    _value: 22
+    _quality:
+      _name: 61646166
+      _icon: {fileID: 0}
+    qualitySelectedIndex: 0
+    options:
+    - 61646166
+    - 6166646164
+    qdb: {fileID: 0}
+    _minDamage: 0
+    _durability: 23
+    _maxDurability: 23
+    _prefab: {fileID: 0}
+    equipmentSlot: 0
+  - _name: 616c6b66646a616b6c6a66646c616b
+    _icon: {fileID: 0}
+    _value: 22
+    _quality:
+      _name: 61646166
+      _icon: {fileID: 0}
+    qualitySelectedIndex: 0
+    options:
+    - 61646166
+    - 6166646164
+    qdb: {fileID: 0}
+    _minDamage: 2323
+    _durability: 23
+    _maxDurability: 23
+    _prefab: {fileID: 0}
+    equipmentSlot: 0
+  - _name: 616c6b66646a616b6c6a66646c616b
+    _icon: {fileID: 0}
+    _value: 22
+    _quality:
+      _name: 61646166
+      _icon: {fileID: 0}
+    qualitySelectedIndex: 0
+    options:
+    - 61646166
+    - 6166646164
+    qdb: {fileID: 0}
+    _minDamage: 0
+    _durability: 23
+    _maxDurability: 23
+    _prefab: {fileID: 0}
+    equipmentSlot: 0
