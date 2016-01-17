@@ -28,6 +28,8 @@ namespace KyleBull.ItemSystem.Editor
                 {
                     _selectedIndex = i;
                     tempWeapon = new ISWeapon(database.Get(i));
+
+
                     showNewWeapon = true;
                     State = DisplyState.WEAPONDETAILS;
                 }

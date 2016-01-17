@@ -79,10 +79,16 @@ namespace KyleBull.ItemSystem
 		virtual public void  OnGUI ()
 		{
 			GUILayout.BeginVertical ();
-			_name = EditorGUILayout.TextField ("Name: ", _name);
+            GUILayout.BeginHorizontal();
+            GUILayout.BeginVertical();
+            _name = EditorGUILayout.TextField ("Name: ", _name);
+            
 			DisplayQuality ();
-			DisplayIcon ();
-			_value = System.Convert.ToInt32(EditorGUILayout.TextField ("Value: ", _value.ToString()));
+            _value = EditorGUILayout.IntField("Value", _value);
+            GUILayout.EndVertical();
+            DisplayIcon ();
+            GUILayout.EndHorizontal();
+			
 			GUILayout.EndVertical ();
 
 		}
@@ -106,7 +112,7 @@ namespace KyleBull.ItemSystem
 
 
 		public void DisplayIcon(){
-            _icon = EditorGUILayout.ObjectField("Icon: ", _icon, typeof(Sprite), false) as Sprite;
+            _icon = EditorGUILayout.ObjectField("Icon: ", _icon, typeof(Sprite), false, GUILayout.Height(50)) as Sprite;
 		}
 
 		public void DisplayQuality()

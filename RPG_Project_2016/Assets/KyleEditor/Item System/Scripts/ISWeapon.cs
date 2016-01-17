@@ -32,6 +32,7 @@ namespace KyleBull.ItemSystem
         {
             base.Clone(weapon);
 
+            _minDamage = weapon.MinDamage;
             _durability = weapon.Durability;
             _maxDurability = weapon.MaxDurability;
             equipmentSlot = weapon.equipmentSlot;
@@ -98,11 +99,12 @@ namespace KyleBull.ItemSystem
 			DisplayPrefab();
 			DisplayEquipmentSlot();
 
-			_minDamage = System.Convert.ToInt32(EditorGUILayout.TextField ("Damage:  ", _minDamage.ToString()));
-			_durability = System.Convert.ToInt32(EditorGUILayout.TextField ("Durability: ", _durability.ToString()));
-			_maxDurability = System.Convert.ToInt32(EditorGUILayout.TextField ("Max Durability: ", _maxDurability.ToString()));
-
-		}
+            _minDamage = EditorGUILayout.IntField("Damage", _minDamage);
+            GUILayout.BeginHorizontal();
+            _durability = EditorGUILayout.IntField("Current Durability", _durability);
+            _maxDurability = EditorGUILayout.IntField("Max Durability", _maxDurability);
+            GUILayout.EndHorizontal();
+        }
 
 		public void DisplayEquipmentSlot()
 		{
