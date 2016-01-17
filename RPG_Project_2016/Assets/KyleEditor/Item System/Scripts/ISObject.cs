@@ -16,6 +16,18 @@ namespace KyleBull.ItemSystem
 		[SerializeField]int _value;
 		[SerializeField]ISQuality _quality;
 
+        public ISObject(ISObject item)
+        {
+            Clone(item);
+        }
+        public void Clone(ISObject item)
+        {
+            _name = item.Name;
+            _icon = item.Icon;
+            _value = item.Value;
+            _quality = item.Quality;
+        }
+
 		public string Name {
 			get {
 				return _name;

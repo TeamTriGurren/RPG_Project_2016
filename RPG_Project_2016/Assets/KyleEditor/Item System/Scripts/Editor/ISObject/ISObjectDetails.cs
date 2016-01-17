@@ -70,6 +70,19 @@ namespace KyleBull.ItemSystem.Editor
                     _selectedIndex = -1;
                     State = DisplyState.NONE;
                 }
+                if (_selectedIndex != -1)
+                {
+                    if (GUILayout.Button("Delete"))
+                    {
+                            database.Remove(_selectedIndex);
+
+                        showNewWeapon = false;
+                        database.Add(tempWeapon);
+                        tempWeapon = null;
+                        _selectedIndex = -1;
+                        State = DisplyState.NONE;
+                    }
+                }
 
                 if (GUILayout.Button("Cancel"))
                 {

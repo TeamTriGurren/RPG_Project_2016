@@ -24,7 +24,7 @@ namespace KyleBull.ItemSystem.Editor
                 if(GUILayout.Button(database.Get(i).Name, "box", GUILayout.Width(_listViewWidth-10)))
                 {
                     _selectedIndex = i;
-                    tempWeapon = database.Get(i);
+                    tempWeapon = new ISWeapon(database.Get(i));
                     showNewWeapon = true;
                     State = DisplyState.WEAPONDETAILS;
                 }
