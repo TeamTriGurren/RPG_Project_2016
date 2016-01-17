@@ -66,7 +66,7 @@ namespace KyleBull.ItemSystem.Editor
                     else
                         database.Replace(_selectedIndex, tempWeapon);
                     showNewWeapon = false;
-                    database.Add(tempWeapon);
+                 //   database.Add(tempWeapon);
                     tempWeapon = null;
                     _selectedIndex = -1;
                     State = DisplyState.NONE;

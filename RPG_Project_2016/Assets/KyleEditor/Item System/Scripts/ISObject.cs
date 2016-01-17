@@ -111,6 +111,13 @@ namespace KyleBull.ItemSystem
 
 		public void DisplayQuality()
 		{
+            int itemIndex = 0;
+
+            if (_quality != null)
+                itemIndex = qdb.GetIndex(_quality.Name);
+
+            if (itemIndex == -1)
+                itemIndex = 0;
 			qualitySelectedIndex = EditorGUILayout.Popup ("Quality: ", qualitySelectedIndex, options);
 	    	_quality = qdb.Get (SelectedQualityID);
 		}
