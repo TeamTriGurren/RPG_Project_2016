@@ -11,4 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a1b024cecf0dc44ae7636887836d9f, type: 3}
   m_Name: QualityDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: First
+    _icon: {fileID: 21300000, guid: f588d850485d0ae479d73cf3bd0b7b00, type: 3}
+  - _name: Second
+    _icon: {fileID: 21300000, guid: eb5f6e2757c821940b69cf1456f7865a, type: 3}

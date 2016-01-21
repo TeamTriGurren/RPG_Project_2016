@@ -1,9 +1,11 @@
 ﻿// Kyle Bull
 // RPG Project 2016
 // Item System
-
-using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+using UnityEngine;
+
 using System.Collections;
 
 namespace KyleBull.ItemSystem
@@ -16,6 +18,11 @@ namespace KyleBull.ItemSystem
 		[SerializeField]int _value;
 		[SerializeField]ISQuality _quality;
 
+    
+        public ISObject()
+        {
+
+        }
         public ISObject(ISObject item)
         {
             Clone(item);
@@ -68,12 +75,13 @@ namespace KyleBull.ItemSystem
 
 
 
-		// Future class
-		//
-
-		int qualitySelectedIndex = 0;
+        // Future class
+        //
+#if UNITY_EDITOR
+        int qualitySelectedIndex = 0;
 		string [] options; 
 		ISQualityDatabase qdb;
+        bool qualityDatabaseLoade = false;
 
 	
 		virtual public void  OnGUI ()
@@ -98,7 +106,7 @@ namespace KyleBull.ItemSystem
 			}
 		}
 
-		public ISObject()
+		public void LoadQualityDatabase()
 		{
 			 string DATABASE_NAME = @"QualityDatabase.asset";
 			 string DATABASE_PATH = @"Database";
@@ -108,6 +116,7 @@ namespace KyleBull.ItemSystem
 			for (int i = 0; i < qdb.Count; i++) {
 				options [i] = qdb.Get (i).Name;
 			}
+            qualityDatabaseLoade = true;
 		}
 
 
@@ -117,6 +126,11 @@ namespace KyleBull.ItemSystem
 
 		public void DisplayQuality()
 		{
+            if(!qualityDatabaseLoade)
+            {
+                LoadQualityDatabase();
+                return;
+            }
             int itemIndex = 0;
 
             if (_quality != null)
@@ -128,6 +142,6 @@ namespace KyleBull.ItemSystem
 	    	_quality = qdb.Get (SelectedQualityID);
 		}
 
-
+#endif
     }
 }

@@ -1,9 +1,10 @@
 ﻿// Kyle Bull
 // RPG Project 2016
 // Item System
-
-using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif 
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq; // needed for Element

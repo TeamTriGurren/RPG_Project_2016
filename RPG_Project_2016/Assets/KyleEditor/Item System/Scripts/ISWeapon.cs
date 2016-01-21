@@ -1,9 +1,10 @@
 ﻿/// Kyle Bull
 // RPG Project 2016
 // Item System
-
-using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+using UnityEngine;
 using System.Collections;
 
 namespace KyleBull.ItemSystem
@@ -93,8 +94,8 @@ namespace KyleBull.ItemSystem
 				return _prefab;	
 			}
 		}
-
-		public override void OnGUI(){
+#if UNITY_EDITOR
+        public override void OnGUI(){
 			base.OnGUI ();
 			DisplayPrefab();
 			DisplayEquipmentSlot();
@@ -114,6 +115,8 @@ namespace KyleBull.ItemSystem
         public void DisplayPrefab()
         {
             _prefab = EditorGUILayout.ObjectField("Prefab: ", _prefab, typeof(GameObject), true) as GameObject;
+
         }
-	}
+#endif
+    }
 }
