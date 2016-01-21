@@ -25,7 +25,14 @@ public class Demo1 : MonoBehaviour {
         ISWeapon isw = database.Get(index);
         GameObject weapon = Instantiate(isw.Prefab);
         weapon.name = isw.Name;
-
+        Weapon myWeapon = weapon.AddComponent<Weapon>();
+        myWeapon.Icon = isw.Icon;
+        myWeapon.Value = isw.Value;
+        myWeapon.Quality = isw.Quality.Icon;
+        myWeapon.MinDamage = isw.MinDamage;
+        myWeapon.MaxDurabilty = isw.MaxDurability;
+    //    myWeapon.EquipmentSlot = isw.Equipment_Slot;
+        myWeapon.Equipment_Slot = isw.equipmentSlot;
     }
 
 }
