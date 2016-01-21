@@ -34,13 +34,29 @@ namespace KyleBull.ItemSystem.Editor
 		{
 			if (database == null)
 				database = ISWeaponDatabase.GetDatabase<ISWeaponDatabase> (DATABASE_PATH, DATABASE_NAME);
-		}
+            tabState = TabState.WEAPON;
+        }
 
 		void OnGUI ()
 		{
 
 			TopTabBar ();
 			GUILayout.BeginHorizontal ();
+            switch (tabState)
+            {
+                case TabState.WEAPON:
+                    ListView();
+                    ItemDetails();
+                    break;
+                case TabState.ARMOR:
+                    
+                    break;
+                case TabState.CONSUMABLE:
+
+                    break;
+                default:
+                    break;
+            }
 			ListView ();
 			ItemDetails ();
 			GUILayout.EndHorizontal ();

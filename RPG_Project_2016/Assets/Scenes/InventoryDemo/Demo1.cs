@@ -31,6 +31,7 @@ public class Demo1 : MonoBehaviour {
         myWeapon.Quality = isw.Quality.Icon;
         myWeapon.MinDamage = isw.MinDamage;
         myWeapon.MaxDurabilty = isw.MaxDurability;
+        myWeapon.Durability = isw.Durability;
     //    myWeapon.EquipmentSlot = isw.Equipment_Slot;
         myWeapon.Equipment_Slot = isw.equipmentSlot;
     }
