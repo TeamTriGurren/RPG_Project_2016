@@ -21,7 +21,11 @@ namespace KyleBull.ItemSystem
 
 		public ISWeapon()
 		{
-			
+            _minDamage = 0;
+            _durability = 1;
+            _maxDurability = 1;
+            _prefab = new GameObject();
+            equipmentSlot = EquipmentSlot.Main_Hand;
 		}
 
 		public ISWeapon(ISWeapon weapon)
