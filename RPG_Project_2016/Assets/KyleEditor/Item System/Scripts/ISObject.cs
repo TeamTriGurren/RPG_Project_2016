@@ -1,9 +1,11 @@
 ﻿// Kyle Bull
 // RPG Project 2016
 // Item System
-
-using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+using UnityEngine;
+
 using System.Collections;
 
 namespace KyleBull.ItemSystem
@@ -15,6 +17,23 @@ namespace KyleBull.ItemSystem
 		[SerializeField]Sprite _icon;
 		[SerializeField]int _value;
 		[SerializeField]ISQuality _quality;
+
+    
+        public ISObject()
+        {
+
+        }
+        public ISObject(ISObject item)
+        {
+            Clone(item);
+        }
+        public void Clone(ISObject item)
+        {
+            _name = item.Name;
+            _icon = item.Icon;
+            _value = item.Value;
+            _quality = item.Quality;
+        }
 
 		public string Name {
 			get {
@@ -56,21 +75,28 @@ namespace KyleBull.ItemSystem
 
 
 
-		// Future class
-		//
-
-		int qualitySelectedIndex = 0;
+        // Future class
+        //
+#if UNITY_EDITOR
+        int qualitySelectedIndex = 0;
 		string [] options; 
 		ISQualityDatabase qdb;
+        bool qualityDatabaseLoade = false;
 
 	
 		virtual public void  OnGUI ()
 		{
 			GUILayout.BeginVertical ();
-			_name = EditorGUILayout.TextField ("Name: ", _name);
+            GUILayout.BeginHorizontal();
+            GUILayout.BeginVertical();
+            _name = EditorGUILayout.TextField ("Name: ", _name);
+            
 			DisplayQuality ();
-			DisplayIcon ();
-			_value = System.Convert.ToInt32(EditorGUILayout.TextField ("Value: ", _value.ToString()));
+            _value = EditorGUILayout.IntField("Value", _value);
+            GUILayout.EndVertical();
+            DisplayIcon ();
+            GUILayout.EndHorizontal();
+			
 			GUILayout.EndVertical ();
 
 		}
@@ -80,7 +106,7 @@ namespace KyleBull.ItemSystem
 			}
 		}
 
-		public ISObject()
+		public void LoadQualityDatabase()
 		{
 			 string DATABASE_NAME = @"QualityDatabase.asset";
 			 string DATABASE_PATH = @"Database";
@@ -90,19 +116,32 @@ namespace KyleBull.ItemSystem
 			for (int i = 0; i < qdb.Count; i++) {
 				options [i] = qdb.Get (i).Name;
 			}
+            qualityDatabaseLoade = true;
 		}
 
 
 		public void DisplayIcon(){
-            _icon = EditorGUILayout.ObjectField("Icon: ", _icon, typeof(Sprite), false) as Sprite;
+            _icon = EditorGUILayout.ObjectField("Icon: ", _icon, typeof(Sprite), false, GUILayout.Height(50)) as Sprite;
 		}
 
 		public void DisplayQuality()
 		{
+            if(!qualityDatabaseLoade)
+            {
+                LoadQualityDatabase();
+                return;
+            }
+            int itemIndex = 0;
+
+            if (_quality != null)
+                itemIndex = qdb.GetIndex(_quality.Name);
+
+            if (itemIndex == -1)
+                itemIndex = 0;
 			qualitySelectedIndex = EditorGUILayout.Popup ("Quality: ", qualitySelectedIndex, options);
 	    	_quality = qdb.Get (SelectedQualityID);
 		}
 
-
+#endif
     }
 }

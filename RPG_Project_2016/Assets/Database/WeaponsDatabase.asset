@@ -11,4 +11,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5789c6d2ac0bb4ea1e48088c9655ce, type: 3}
   m_Name: WeaponsDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: Name
+    _icon: {fileID: 21300000, guid: f588d850485d0ae479d73cf3bd0b7b00, type: 3}
+    _value: 3
+    _quality:
+      _name: First
+      _icon: {fileID: 21300000, guid: f588d850485d0ae479d73cf3bd0b7b00, type: 3}
+    _minDamage: 22
+    _durability: 2
+    _maxDurability: 2
+    _prefab: {fileID: 100004, guid: d8c41be67f41aa545ae053b0b927f821, type: 2}
+    equipmentSlot: 0
+  - _name: Secondary
+    _icon: {fileID: 21300000, guid: f588d850485d0ae479d73cf3bd0b7b00, type: 3}
+    _value: 0
+    _quality:
+      _name: First
+      _icon: {fileID: 21300000, guid: f588d850485d0ae479d73cf3bd0b7b00, type: 3}
+    _minDamage: 34
+    _durability: 4
+    _maxDurability: 2
+    _prefab: {fileID: 100002, guid: 28a5e79925e3ce04a82856c16a572cbe, type: 2}
+    equipmentSlot: 1

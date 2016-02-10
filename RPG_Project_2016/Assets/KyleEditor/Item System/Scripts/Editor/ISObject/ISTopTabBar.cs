@@ -11,32 +11,46 @@ namespace KyleBull.ItemSystem.Editor
 	public partial class ISObjectEditor
 	{
 
+        private enum TabState
+        {
+            WEAPON, 
+            ARMOR,
+            CONSUMABLE,
+            ABOUT
+        }
+
+        TabState tabState;
+
 		void TopTabBar ()
 		{
 			GUILayout.BeginHorizontal ( GUILayout.ExpandWidth (true));
 			WeaponTab ();
 			ArmorTab ();
-			ItemsTab ();
+			ConsumableTab ();
 			AboutTab ();
 			GUILayout.EndHorizontal ();
 		}
 
 		void WeaponTab()
 		{
-			GUILayout.Button ("Weapons");
+            if (GUILayout.Button("Weapons"))
+                tabState = TabState.WEAPON;
 		}
 
 		void ArmorTab()
 		{
-			GUILayout.Button ("Armor");
+            if (GUILayout.Button("Armor"))
+                tabState = TabState.ARMOR;
 		}
-		void ItemsTab()
+		void ConsumableTab()
 		{
-			GUILayout.Button ("Items");
+            if (GUILayout.Button("Consumables"))
+                tabState = TabState.CONSUMABLE;
 		}
 		void AboutTab()
 		{
-			GUILayout.Button ("About");
+            if (GUILayout.Button("About"))
+                tabState = TabState.ABOUT;
 		}
 
 

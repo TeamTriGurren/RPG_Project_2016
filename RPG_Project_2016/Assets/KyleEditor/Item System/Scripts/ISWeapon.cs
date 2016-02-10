@@ -1,36 +1,48 @@
 ﻿/// Kyle Bull
 // RPG Project 2016
 // Item System
-
-using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
+using UnityEngine;
 using System.Collections;
 
 namespace KyleBull.ItemSystem
 {
 	[System.Serializable]
-	public class ISWeapon : ISObject, IISWeapon, IISDestructable, IISEquipable, IISGameObject
+	public class ISWeapon : ISObject, IISWeapon, IISDestructable,  IISGameObject
 	{
 		[SerializeField] int _minDamage;
 		[SerializeField] int _durability;
 		[SerializeField] int _maxDurability;
-		[SerializeField] ISEquipmentSlot _equipmentSlot;
 		[SerializeField] GameObject _prefab;
 
 		public EquipmentSlot equipmentSlot;
 
 		public ISWeapon()
 		{
-			_equipmentSlot = new ISEquipmentSlot ();
+            _minDamage = 0;
+            _durability = 1;
+            _maxDurability = 1;
+            _prefab = new GameObject();
+            equipmentSlot = EquipmentSlot.Main_Hand;
 		}
 
-		public ISWeapon(int durability, int maxDurability, ISEquipmentSlot equipmentSlot, GameObject prefab)
+		public ISWeapon(ISWeapon weapon)
 		{
-			_durability = durability;
-			_maxDurability = maxDurability;
-			_equipmentSlot = equipmentSlot;
-			_prefab = prefab;
+            Clone(weapon);
 		}
+
+        public void Clone(ISWeapon weapon)
+        {
+            base.Clone(weapon);
+
+            _minDamage = weapon.MinDamage;
+            _durability = weapon.Durability;
+            _maxDurability = weapon.MaxDurability;
+            equipmentSlot = weapon.equipmentSlot;
+            _prefab = weapon.Prefab;
+        }
 
 		public int Attack ()
 		{
@@ -81,29 +93,23 @@ namespace KyleBull.ItemSystem
 			}
 		}
 			
-
-		public ISEquipmentSlot Equipmentslot {
-			get {
-				return _equipmentSlot;
-			}
-		}
-
 		public GameObject Prefab {
 			get {
 				return _prefab;	
 			}
 		}
-
-		public override void OnGUI(){
+#if UNITY_EDITOR
+        public override void OnGUI(){
 			base.OnGUI ();
 			DisplayPrefab();
 			DisplayEquipmentSlot();
 
-			_minDamage = System.Convert.ToInt32(EditorGUILayout.TextField ("Damage:  ", _minDamage.ToString()));
-			_durability = System.Convert.ToInt32(EditorGUILayout.TextField ("Durability: ", _durability.ToString()));
-			_maxDurability = System.Convert.ToInt32(EditorGUILayout.TextField ("Max Durability: ", _maxDurability.ToString()));
-
-		}
+            _minDamage = EditorGUILayout.IntField("Damage", _minDamage);
+            GUILayout.BeginHorizontal();
+            _durability = EditorGUILayout.IntField("Current Durability", _durability);
+            _maxDurability = EditorGUILayout.IntField("Max Durability", _maxDurability);
+            GUILayout.EndHorizontal();
+        }
 
 		public void DisplayEquipmentSlot()
 		{
@@ -113,6 +119,8 @@ namespace KyleBull.ItemSystem
         public void DisplayPrefab()
         {
             _prefab = EditorGUILayout.ObjectField("Prefab: ", _prefab, typeof(GameObject), true) as GameObject;
+
         }
-	}
+#endif
+    }
 }

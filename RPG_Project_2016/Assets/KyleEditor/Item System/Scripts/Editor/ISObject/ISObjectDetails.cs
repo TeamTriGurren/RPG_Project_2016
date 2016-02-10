@@ -24,7 +24,7 @@ namespace KyleBull.ItemSystem.Editor
         void ItemDetails()
         {
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
-            
+
             switch (State)
             {
                 case DisplyState.NONE:
@@ -58,6 +58,7 @@ namespace KyleBull.ItemSystem.Editor
             }
             else
             {
+                GUI.SetNextControlName("SaveButton");
                 if (GUILayout.Button("Save"))
                 {
                     if (_selectedIndex == -1)
@@ -65,10 +66,31 @@ namespace KyleBull.ItemSystem.Editor
                     else
                         database.Replace(_selectedIndex, tempWeapon);
                     showNewWeapon = false;
-                    database.Add(tempWeapon);
+                 //   database.Add(tempWeapon);
                     tempWeapon = null;
                     _selectedIndex = -1;
                     State = DisplyState.NONE;
+                    GUI.FocusControl("SaveButton");
+                }
+                if (_selectedIndex != -1)
+                {
+                    if (GUILayout.Button("Delete"))
+                    {
+                        if (EditorUtility.DisplayDialog("Delete Weapon",
+                    "Do you want to Delete //" + database.Get(_selectedIndex).Name + "// from the data?",
+                    "Delete (Yes)",
+                    "Cancel (no)"))
+                        {
+                            database.Remove(_selectedIndex);
+                            showNewWeapon = false;
+                            tempWeapon = null;
+                            _selectedIndex = -1;
+                            State = DisplyState.NONE;
+                            GUI.FocusControl("SaveButton");
+                        }
+
+                   
+                    }
                 }
 
                 if (GUILayout.Button("Cancel"))
@@ -77,6 +99,7 @@ namespace KyleBull.ItemSystem.Editor
                     tempWeapon = null;
                     _selectedIndex = -1;
                     State = DisplyState.NONE;
+                    GUI.FocusControl("SaveButton");
                 }
             }
         }

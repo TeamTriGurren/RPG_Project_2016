@@ -17,6 +17,9 @@ namespace KyleBull.ItemSystem.Editor
 
 		void ListView ()
 		{
+            if (State != DisplyState.NONE)
+                return;
+
 			_scrollPos = GUILayout.BeginScrollView (_scrollPos, "Box", GUILayout.ExpandHeight (true), GUILayout.Width(_listViewWidth));
 
             for (int i =0; i < database.Count; i ++)
@@ -24,7 +27,9 @@ namespace KyleBull.ItemSystem.Editor
                 if(GUILayout.Button(database.Get(i).Name, "box", GUILayout.Width(_listViewWidth-10)))
                 {
                     _selectedIndex = i;
-                    tempWeapon = database.Get(i);
+                    tempWeapon = new ISWeapon(database.Get(i));
+
+
                     showNewWeapon = true;
                     State = DisplyState.WEAPONDETAILS;
                 }

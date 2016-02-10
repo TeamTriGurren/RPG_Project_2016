@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEditor;
+#endif
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using System.Linq;
 
 
@@ -9,9 +11,9 @@ namespace KyleBull
 {
 	public class ScriptableObjectDatabase<T> : ScriptableObject where T: class
 	{
-		[SerializeField] List<T> database = new List<T>();
-
-		public void Add(T item)
+		[SerializeField] protected List<T> database = new List<T>();
+#if UNITY_EDITOR
+        public void Add(T item)
 		{
 			database.Add (item);
 			EditorUtility.SetDirty (this);
@@ -34,16 +36,16 @@ namespace KyleBull
 			database.RemoveAt (index);
 			EditorUtility.SetDirty (this);
 		}
-
-		public int Count
+#endif
+        public int Count
 		{
 			get
 			{ 
 				return database.Count; 
 			}
 		}
-
-		public T Get(int index)
+#if UNITY_EDITOR
+        public T Get(int index)
 		{
 			return database.ElementAt (index);
 		}
@@ -70,6 +72,6 @@ namespace KyleBull
 			}
 			return db;
 		}
-
-	}
+#endif
+    }
 }
