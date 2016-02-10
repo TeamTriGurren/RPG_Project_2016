@@ -21,7 +21,8 @@ namespace KyleBull.ItemSystem.Editor
         ISWeapon tempWeapon = new ISWeapon();
         bool showNewWeapon = false;
         DisplyState State = DisplyState.NONE;
-        void ItemDetails()
+       
+		void ItemDetails()
         {
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
 

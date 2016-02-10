@@ -108,6 +108,33 @@ namespace KyleBull.ItemSystem
             }
         }
 
+
+		#if UNITY_EDITOR
+		public override void OnGUI(){
+			base.OnGUI ();
+			DisplayPrefab();
+			DisplayEquipmentSlot();
+
+			_currentArmor = EditorGUILayout.IntField("Minimum Armor", _currentArmor);
+			_maxArmor = EditorGUILayout.IntField("Max Armor", _maxArmor);
+			GUILayout.BeginHorizontal();
+			_durability = EditorGUILayout.IntField("Current Durability", _durability);
+			_maxDurability = EditorGUILayout.IntField("Max Durability", _maxDurability);
+			GUILayout.EndHorizontal();
+		}
+
+		public void DisplayEquipmentSlot()
+		{
+			equipmentSlot = (EquipmentSlot)EditorGUILayout.EnumPopup ("Equipment Slot", equipmentSlot);
+		}
+
+		public void DisplayPrefab()
+		{
+			_prefab = EditorGUILayout.ObjectField("Prefab: ", _prefab, typeof(GameObject), true) as GameObject;
+
+		}
+		#endif
+
     }
 }
 

@@ -11,10 +11,13 @@ namespace KyleBull.ItemSystem.Editor
 	public partial class ISObjectEditor : EditorWindow
 	{
 		ISWeaponDatabase database;
+		ISObjectCategory armorDatabase = new ISObjectCategory ();
+
 		const int SPRITE_BUTTON_SIZE = 46;
 		const string DATABASE_NAME = @"WeaponsDatabase.asset";
 		const string DATABASE_PATH = @"Database";
 		const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
+
 
 
 		// MenuItem code lets you assign a keyboard function, CTRL SHIFT Q in this case
@@ -34,7 +37,9 @@ namespace KyleBull.ItemSystem.Editor
 		{
 			if (database == null)
 				database = ISWeaponDatabase.GetDatabase<ISWeaponDatabase> (DATABASE_PATH, DATABASE_NAME);
-            tabState = TabState.WEAPON;
+
+			armorDatabase.OnEnable ();
+			tabState = TabState.ABOUT;
         }
 
 		void OnGUI ()
