@@ -25,67 +25,89 @@ namespace KyleBull.ItemSystem
             _maxArmor = 0;
             _durability = 1;
             _maxDurability = 1;
-            _prefab = new GameObject();
+         //   _prefab = new GameObject();
             equipmentSlot = EquipmentSlot.Chest;
         }
 
+		public ISArmor(ISArmor armor)
+		{
+			Clone(armor);
+		}
 
-        #region IISGameObject implmentation
-        public GameObject Prefab
-        {
-            get
-            {
+		public void Clone(ISArmor armor)
+		{
+			base.Clone(armor);
 
-            }
-        }
+			_currentArmor = armor._currentArmor;
+			_maxArmor = armor._maxArmor;
+			_durability = armor.Durability;
+			_maxDurability = armor.MaxDurability;
+			equipmentSlot = armor.equipmentSlot;
+			_prefab = armor.Prefab;
+		}
 
-        #endregion
-        #region IISDestructable implmenation
-        public void TakeDamage(int amount)
-        {
+		public void TakeDamage (int amount)
+		{
+			_durability -= amount;
+			if (_durability < 0)
+				_durability = 0;
 
-        }
+			if (_durability == 0)
+				Break();
 
-        public void Repair()
-        {
+		}
+		// Reduces Dur to 0;
+		public void Break ()
+		{
+			_durability = 0;
+		}
 
-        }
+		public void Repair ()
+		{
+			_durability = _maxDurability;
+		}
 
-        public void Break()
-        {
+		public int Durability {
+			get {
+				return _durability;
+			}
+		}
 
-        }
-        public int Durability
-        {
-            get
-            {
+		public int MaxDurability {
+			get {
+				return _maxDurability;
+			}
+		}
 
-            }
-        }
-
-        public int MaxDurability
-        {
-            get
-            {
-
-            }
-        }
-
-
-        #endregion
-        #region IISArmor implmentation
+		public GameObject Prefab {
+			get {
+				if (!_prefab)
+					_prefab = new GameObject ();
+				
+				return _prefab;	
+			}
+		}
+			
         public Vector2 Armor
         {
             get
             {
-
+				return new Vector2(_currentArmor, _maxArmor);
             }
             set
             {
+				if (value.x < 0)
+					value.x = 0;
+				if (value.y < 1)
+					value.y = 1;
+				if (value.x > value.y)
+					value.x = value.y;
 
+				_currentArmor = (int)value.x;
+				_maxArmor = (int)value.y;
             }
         }
-        #endregion
+
     }
 }
 

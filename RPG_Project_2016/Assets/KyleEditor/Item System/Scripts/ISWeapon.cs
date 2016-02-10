@@ -24,7 +24,7 @@ namespace KyleBull.ItemSystem
             _minDamage = 0;
             _durability = 1;
             _maxDurability = 1;
-            _prefab = new GameObject();
+           // _prefab = new GameObject();
             equipmentSlot = EquipmentSlot.Main_Hand;
 		}
 
@@ -95,6 +95,8 @@ namespace KyleBull.ItemSystem
 			
 		public GameObject Prefab {
 			get {
+				if (!_prefab)
+					_prefab = new GameObject ();
 				return _prefab;	
 			}
 		}
