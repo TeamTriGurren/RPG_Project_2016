@@ -13,7 +13,7 @@ namespace KyleBull.ItemSystem.Editor
 			GUILayout.BeginHorizontal ("Box", GUILayout.ExpandWidth (true));
 			GUILayout.Label ("Bottom Status Bar");
 
-			DisplayButtons();
+			//DisplayButtons();
 			GUILayout.EndHorizontal ();
 		}
 

@@ -81,9 +81,6 @@ namespace KyleBull.ItemSystem
 
 		public GameObject Prefab {
 			get {
-				if (!_prefab)
-					_prefab = new GameObject ();
-				
 				return _prefab;	
 			}
 		}

@@ -11,12 +11,14 @@ namespace KyleBull.ItemSystem.Editor
 	public partial class ISObjectEditor : EditorWindow
 	{
 		ISWeaponDatabase database;
-		ISObjectCategory armorDatabase = new ISObjectCategory ();
+		ISObjectCategory armorDatabase = new ISObjectCategory();
 
 		const int SPRITE_BUTTON_SIZE = 46;
 		const string DATABASE_NAME = @"WeaponsDatabase.asset";
 		const string DATABASE_PATH = @"Database";
 		const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
+
+        
 
 
 
@@ -51,10 +53,11 @@ namespace KyleBull.ItemSystem.Editor
             {
                 case TabState.WEAPON:
                     ListView();
+                    
                     ItemDetails();
                     break;
                 case TabState.ARMOR:
-                    
+                    armorDatabase.OnGUI();
                     break;
                 case TabState.CONSUMABLE:
 
@@ -62,10 +65,9 @@ namespace KyleBull.ItemSystem.Editor
                 default:
                     break;
             }
-			ListView ();
-			ItemDetails ();
+			
 			GUILayout.EndHorizontal ();
-			BottomStatusBar ();
+			BottomStatusBar();
 		}
 	}
 }

@@ -30,5 +30,11 @@ namespace KyleBull.ItemSystem.Editor
 			if (Database == null)
 				Database = ISArmorDatabase.GetDatabase<ISArmorDatabase> (DATABASE_PATH, DatabaseName);
 		}
+
+        public void OnGUI()
+        {
+            ListView();
+            ItemDetails();
+        }
 	}
 }

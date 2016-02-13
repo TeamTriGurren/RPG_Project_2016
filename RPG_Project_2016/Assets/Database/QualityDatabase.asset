@@ -11,4 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a1b024cecf0dc44ae7636887836d9f, type: 3}
   m_Name: QualityDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: adfa
+    _icon: {fileID: 0}
+  - _name: adfa
+    _icon: {fileID: 0}
+  - _name: adfaf
+    _icon: {fileID: 0}

@@ -11,4 +11,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6355e1c9c41c17348b6361d0f908ae47, type: 3}
   m_Name: ArmorDatabase
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: adfaf
+    _icon: {fileID: 0}
+    _value: 0
+    _quality:
+      _name: 
+      _icon: {fileID: 0}
+    _currentArmor: 0
+    _maxArmor: 0
+    _durability: 0
+    _maxDurability: 0
+    _prefab: {fileID: 0}
+    equipmentSlot: 0
+  - _name: afafdaf
+    _icon: {fileID: 0}
+    _value: 0
+    _quality:
+      _name: 
+      _icon: {fileID: 0}
+    _currentArmor: 0
+    _maxArmor: 0
+    _durability: 0
+    _maxDurability: 0
+    _prefab: {fileID: 0}
+    equipmentSlot: 0
