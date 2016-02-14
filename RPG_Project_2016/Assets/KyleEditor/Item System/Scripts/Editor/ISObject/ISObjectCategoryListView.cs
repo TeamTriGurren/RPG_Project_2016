@@ -16,7 +16,7 @@ namespace KyleBull.ItemSystem.Editor
         int _selectedIndex = -1;
         ISArmor tempArmor;
         bool showDetails = false;
-        bool createNewArmor = false;
+       
 
 
         public void ListView ()
@@ -29,10 +29,7 @@ namespace KyleBull.ItemSystem.Editor
                 {
                     _selectedIndex = i;
                     tempArmor = new ISArmor(Database.Get(i));
-            
-                    showDetails = true;
-                    createNewArmor = true;
-                    
+                    showDetails = true;   
                 }
             }
      //       DisplayButtons();

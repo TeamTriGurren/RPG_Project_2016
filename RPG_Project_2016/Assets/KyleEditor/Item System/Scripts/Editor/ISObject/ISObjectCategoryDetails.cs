@@ -3,6 +3,7 @@
 // Item System
 
 using UnityEngine;
+using UnityEditor;
 using System.Collections;
 
 namespace KyleBull.ItemSystem.Editor
@@ -13,17 +14,25 @@ namespace KyleBull.ItemSystem.Editor
         public void ItemDetails()
         {
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
+            GUILayout.BeginVertical(GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+            if (showDetails)
+                tempArmor.OnGUI();
             DisplayButtons();
+            GUILayout.EndVertical();
             GUILayout.EndHorizontal();
         }
         void DisplayButtons()
         {
             if (showDetails)
             {
-                Debug.Log("Show Item Details");
+
                 SaveButton();
+                if (_selectedIndex > -1)
+                {
+                    DeleteButton();
+                }
                 CancelButton();
-                DeleteButton();
+
             }
             else
             {
@@ -36,7 +45,7 @@ namespace KyleBull.ItemSystem.Editor
             {
                 tempArmor = new ISArmor();
                 showDetails = true;
-                createNewArmor = true;
+                
 
             }
         }
@@ -47,12 +56,22 @@ namespace KyleBull.ItemSystem.Editor
             GUI.SetNextControlName("SaveButton");
             if (GUILayout.Button("Save"))
             {
-                showDetails = false;
-                createNewArmor = false;
-                _selectedIndex = -1;
-                tempArmor = null;
+                GUI.SetNextControlName("SaveButton");
+                if (GUILayout.Button("Save"))
+                {
+                    if (_selectedIndex == -1)
+                        Database.Add(tempArmor);
+                    else
+                        Database.Replace(_selectedIndex, tempArmor);
+
+                    showDetails = false;
+                    
+                    _selectedIndex = -1;
+                    GUI.FocusControl("SaveButton");
+                    tempArmor = null;
+                }
             }
-            }
+        }
 
         void CancelButton()
         {
@@ -60,15 +79,31 @@ namespace KyleBull.ItemSystem.Editor
             if (GUILayout.Button("Cancel"))
             {
                 showDetails = false;
-                createNewArmor = false;
+               
                 tempArmor = null;
                 _selectedIndex = -1;
-                
+
                 GUI.FocusControl("SaveButton");
             }
         }
         void DeleteButton()
         {
+            if (GUILayout.Button("Delete"))
+            {
+
+                if (EditorUtility.DisplayDialog("Delete " + Database.Get(_selectedIndex).Name +"?",
+            "Do you want to Delete " + Database.Get(_selectedIndex).Name + " from the data?",
+            "Delete (Yes)",
+            "Cancel (no)"))
+                {
+                    Database.Remove(_selectedIndex);
+                    showDetails = false;
+                    tempArmor = null;
+                    _selectedIndex = -1;
+                   
+                    GUI.FocusControl("SaveButton");
+                }
+            }
         }
     }
 }

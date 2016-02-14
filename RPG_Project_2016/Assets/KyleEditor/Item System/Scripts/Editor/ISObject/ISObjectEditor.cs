@@ -12,9 +12,10 @@ namespace KyleBull.ItemSystem.Editor
 	{
 		ISWeaponDatabase database;
 		ISObjectCategory armorDatabase = new ISObjectCategory();
+        ISObjectDatabaseType<ISWeaponDatabase, ISWeapon> weapondbt = new ISObjectDatabaseType<ISWeaponDatabase, ISWeapon>("weaponTest.asset");
+        ISObjectDatabaseType<ISArmorDatabase, ISArmor> armordbt = new ISObjectDatabaseType<ISArmorDatabase, ISArmor>("armorTest.asset");
 
-		const int SPRITE_BUTTON_SIZE = 46;
-		const string DATABASE_NAME = @"WeaponsDatabase.asset";
+        const string DATABASE_NAME = @"WeaponsDatabase.asset";
 		const string DATABASE_PATH = @"Database";
 		const string DATABASE_FULL_PATH = @"Assets/" + DATABASE_PATH + "/" + DATABASE_NAME;
 
@@ -39,7 +40,8 @@ namespace KyleBull.ItemSystem.Editor
 		{
 			if (database == null)
 				database = ISWeaponDatabase.GetDatabase<ISWeaponDatabase> (DATABASE_PATH, DATABASE_NAME);
-
+            weapondbt.OnEnable();
+            armordbt.OnEnable();
 			armorDatabase.OnEnable ();
 			tabState = TabState.ABOUT;
         }
@@ -52,8 +54,8 @@ namespace KyleBull.ItemSystem.Editor
             switch (tabState)
             {
                 case TabState.WEAPON:
+                    DisplayButtons();
                     ListView();
-                    
                     ItemDetails();
                     break;
                 case TabState.ARMOR:

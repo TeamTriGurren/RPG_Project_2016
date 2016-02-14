@@ -34,7 +34,7 @@ namespace KyleBull.ItemSystem.Editor
                     State = DisplyState.WEAPONDETAILS;
                 }
             }
-            DisplayButtons();
+            
             EditorGUILayout.EndScrollView ();
 		}
 	}

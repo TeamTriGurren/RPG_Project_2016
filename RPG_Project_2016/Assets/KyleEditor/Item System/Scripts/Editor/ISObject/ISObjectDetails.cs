@@ -77,8 +77,8 @@ namespace KyleBull.ItemSystem.Editor
                 {
                     if (GUILayout.Button("Delete"))
                     {
-                        if (EditorUtility.DisplayDialog("Delete Weapon",
-                    "Do you want to Delete //" + database.Get(_selectedIndex).Name + "// from the data?",
+                        if (EditorUtility.DisplayDialog("Delete" + database.Get(_selectedIndex).Name + "?",
+                    "Do you want to Delete " + database.Get(_selectedIndex).Name + " from the data?",
                     "Delete (Yes)",
                     "Cancel (no)"))
                         {
