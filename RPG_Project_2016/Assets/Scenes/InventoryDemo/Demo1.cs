@@ -3,7 +3,7 @@
 
 using UnityEngine;
 using System.Collections;
-using KyleBull.ItemSystem; // This line is needed on everything to call the database
+using KyleBull.ItemSystem; // This line is needed on everything to call the item
 //
 
 

@@ -15,7 +15,7 @@ namespace KyleBull.ItemSystem
 	{
         public int GetIndex(string name)
         {
-            return database.FindIndex(a => a.Name == name);
+            return item.FindIndex(a => a.Name == name);
         }
 	}
 
