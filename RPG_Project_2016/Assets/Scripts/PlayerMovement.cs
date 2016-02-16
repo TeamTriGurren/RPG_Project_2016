@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Other.gameObject.tag == "BattleArea")
         {
+			Debug.Log ("Battle Area.. Combat in.." + (secondCounter - walkCounter));
             walkCounter++;
         }
     }
