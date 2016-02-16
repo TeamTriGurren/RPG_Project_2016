@@ -11,6 +11,8 @@ namespace KyleBull.ItemSystem.Editor
     public partial class ISObjectCategory
     {
         string itemType = "Armor";
+
+
         public void ItemDetails()
         {
             GUILayout.BeginHorizontal("Box", GUILayout.ExpandWidth(true), GUILayout.ExpandHeight(true));
@@ -45,8 +47,6 @@ namespace KyleBull.ItemSystem.Editor
             {
                 tempArmor = new ISArmor();
                 showDetails = true;
-                
-
             }
         }
 
@@ -60,7 +60,7 @@ namespace KyleBull.ItemSystem.Editor
                 if (GUILayout.Button("Save"))
                 {
                     if (_selectedIndex == -1)
-                        Database.Add(tempArmor);
+                       Database.Add(tempArmor);
                     else
                         Database.Replace(_selectedIndex, tempArmor);
 

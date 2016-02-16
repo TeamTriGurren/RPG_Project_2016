@@ -12,6 +12,7 @@ namespace KyleBull
 	public class ScriptableObjectDatabase<T> : ScriptableObject where T: class
 	{
 		[SerializeField] protected List<T> item = new List<T>();
+
         public List<T> Item
         {
             get
@@ -19,66 +20,73 @@ namespace KyleBull
                 return item;
             }
         }
-//#if UNITY_EDITOR
-//        public void Add(T item)
-//		{
-//			item.Add (item);
-//			EditorUtility.SetDirty (this);
-//		}
 
-//		public void Insert(int index, T item)
-//		{
-//			item.Insert (index, item);
-//			EditorUtility.SetDirty (this);
-//		}
-
-//		public void Remove(T item)
-//		{
-//			item.Remove (item);
-//			EditorUtility.SetDirty (this);
-//		}
-
-//		public void Remove(int index)
-//		{
-//			item.RemoveAt (index);
-//			EditorUtility.SetDirty (this);
-//		}
-//#endif
         public int Count
-		{
-			get
-			{ 
-				return item.Count; 
-			}
-		}
-#if UNITY_EDITOR
+        {
+            get
+            {
+                return item.Count;
+            }
+        }
+
         public T Get(int index)
-		{
-			return item.ElementAt (index);
-		}
+        {
+            return item.ElementAt(index);
+        }
+#if UNITY_EDITOR
+        public void Add(T i)
+        {
+            item.Add(i);
+            EditorUtility.SetDirty(this);
+        }
 
-		//public void Replace(int index, T item)
-		//{
-		//	item [index] = item;
-		//	EditorUtility.SetDirty (this);
-		//}
+        public void Insert(int index, T i)
+        {
+            item.Insert(index, i);
+            EditorUtility.SetDirty(this);
+        }
 
-		//public static U GetDatabase<U>(string dbPath, string dbName) where U: ScriptableObject
-		//{
-		//	string dbFullPath = @"Assets/" + dbPath + "/" + dbName;
-		//	// Checks to see if folder exists O_O!
-		//	U db = AssetDatabase.LoadAssetAtPath (dbFullPath, typeof(U)) as U;
-		//	if (db == null) {
-		//		if (!AssetDatabase.IsValidFolder ("Assets/" + dbPath))
-		//			AssetDatabase.CreateFolder ("Assets", dbPath);
+        public void Remove(T i)
+        {
+            item.Remove(i);
+            EditorUtility.SetDirty(this);
+        }
 
-		//		db = ScriptableObject.CreateInstance<U> () as U;
-		//		AssetDatabase.CreateAsset (db, dbFullPath);
-		//		AssetDatabase.SaveAssets ();
-		//		AssetDatabase.Refresh ();
-		//	}
-		//	return db;
-		//}
+        public void Remove(int index)
+        {
+            item.RemoveAt(index);
+            EditorUtility.SetDirty(this);
+        }
+
+        public void Replace(int index, T i)
+        {
+            item[index] = i;
+            EditorUtility.SetDirty(this);
+        }
+#endif
+
+#if UNITY_EDITOR
+
+
+
+
+        public static U GetDatabase<U>(string dbPath, string dbName) where U : ScriptableObject
+        {
+            string dbFullPath = @"Assets/" + dbPath + "/" + dbName;
+            // Checks to see if folder exists O_O!
+            U db = AssetDatabase.LoadAssetAtPath(dbFullPath, typeof(U)) as U;
+            if (db == null)
+            {
+                if (!AssetDatabase.IsValidFolder("Assets/" + dbPath))
+                    AssetDatabase.CreateFolder("Assets", dbPath);
+
+                db = ScriptableObject.CreateInstance<U>() as U;
+                AssetDatabase.CreateAsset(db, dbFullPath);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+            return db;
+        }
 #endif
     }
 }

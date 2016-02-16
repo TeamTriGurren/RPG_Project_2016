@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BattleArea
+  - SafeArea
+  - Walls
   layers:
   - Default
   - TransparentFX
@@ -38,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Object
+    uniqueID: 2302793847
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

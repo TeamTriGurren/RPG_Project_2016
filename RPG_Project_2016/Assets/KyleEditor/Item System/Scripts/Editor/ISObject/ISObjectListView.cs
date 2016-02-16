@@ -12,7 +12,7 @@ namespace KyleBull.ItemSystem.Editor
 		
 		Vector2 _scrollPos = Vector2.zero;
 		int _listViewWidth = 200;
-        Vector2 buttonSize = new Vector2(200, 25);
+      //  Vector2 buttonSize = new Vector2(200, 25);
         int _selectedIndex = -1;
 
 		void ListView ()

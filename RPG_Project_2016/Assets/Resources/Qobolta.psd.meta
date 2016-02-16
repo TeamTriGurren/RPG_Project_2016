@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 1a54c2cf463505b4bb4f5fa39dc1ecf6
+timeCreated: 1455496986
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Qobolta_0
+    21300002: Qobolta_1
+    21300004: Qobolta_2
+    21300006: Qobolta_3
+    21300008: Qobolta_4
+    21300010: Qobolta_5
+    21300012: Qobolta_6
+    21300014: Qobolta_7
+    21300016: Qobolta_8
+    21300018: Qobolta_9
+    21300020: Qobolta_10
+    21300022: Qobolta_11
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 256
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Qobolta_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 117
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 118
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_2
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 116
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_3
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 83
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_4
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 83
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_5
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 83
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_6
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 49
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_7
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 49
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_8
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 49
+        width: 22
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_9
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 16
+        width: 25
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_10
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 16
+        width: 25
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: Qobolta_11
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 16
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

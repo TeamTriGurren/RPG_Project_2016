@@ -12,8 +12,8 @@ namespace KyleBull.ItemSystem.Editor
 	{
 		ISWeaponDatabase database;
 		ISObjectCategory armorDatabase = new ISObjectCategory();
-        ISObjectDatabaseType<ISWeaponDatabase, ISWeapon> weapondbt = new ISObjectDatabaseType<ISWeaponDatabase, ISWeapon>("weaponTest.asset");
-        ISObjectDatabaseType<ISArmorDatabase, ISArmor> armordbt = new ISObjectDatabaseType<ISArmorDatabase, ISArmor>("armorTest.asset");
+        ISObjectDatabaseType<ISWeaponDatabase, ISWeapon> weaponDB = new ISObjectDatabaseType<ISWeaponDatabase, ISWeapon>("weaponTest.asset");
+        ISObjectDatabaseType<ISArmorDatabase, ISArmor> armorDB = new ISObjectDatabaseType<ISArmorDatabase, ISArmor>("armorTest.asset");
 
         const string DATABASE_NAME = @"WeaponsDatabase.asset";
 		const string DATABASE_PATH = @"Database";
@@ -38,11 +38,12 @@ namespace KyleBull.ItemSystem.Editor
 
 		void OnEnable ()
 		{
-			if (database == null)
-				database = ISWeaponDatabase.GetDatabase<ISWeaponDatabase> (DATABASE_PATH, DATABASE_NAME);
-            weapondbt.OnEnable();
-            armordbt.OnEnable();
-			armorDatabase.OnEnable ();
+            if (database == null)
+                database = ISWeaponDatabase.GetDatabase<ISWeaponDatabase>(DATABASE_PATH, DATABASE_NAME);
+            armorDatabase.OnEnable();
+            weaponDB.OnEnable();
+            armorDB.OnEnable();
+			
 			tabState = TabState.ABOUT;
         }
 
@@ -54,11 +55,13 @@ namespace KyleBull.ItemSystem.Editor
             switch (tabState)
             {
                 case TabState.WEAPON:
+                   // weaponDB.OnGUI();
                     DisplayButtons();
                     ListView();
                     ItemDetails();
                     break;
                 case TabState.ARMOR:
+         //           armorDB.OnGUI();
                     armorDatabase.OnGUI();
                     break;
                 case TabState.CONSUMABLE:

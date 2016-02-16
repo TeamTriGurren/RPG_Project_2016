@@ -11,12 +11,11 @@ namespace KyleBull.ItemSystem.Editor
 	public partial class ISObjectCategory
 	{
 		protected ISArmorDatabase Database { get; set; }
-
 		protected string DatabaseName { get; set; }
-
 		const string DATABASE_PATH = @"Database";
 
-		public ISObjectCategory()
+  
+        public ISObjectCategory()
 		{
 			DatabaseName = @"ArmorDatabase.asset";
 		}

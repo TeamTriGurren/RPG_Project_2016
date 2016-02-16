@@ -13,54 +13,56 @@ namespace KyleBull.ItemSystem.Editor
 
         public void Add(T item)
         {
-            Database.Item.Add(item);
-            EditorUtility.SetDirty(Database);
+            database.Item.Add(item);
+            EditorUtility.SetDirty(database);
         }
 
         public void Insert(int index, T item)
         {
-            Database.Item.Insert(index, item);
-            EditorUtility.SetDirty(Database);
+            database.Item.Insert(index, item);
+            EditorUtility.SetDirty(database);
         }
 
         public void Remove(T item)
         {
-            Database.Item.Remove(item);
-            EditorUtility.SetDirty(Database);
+            database.Item.Remove(item);
+            EditorUtility.SetDirty(database);
         }
 
         public void Remove(int index)
         {
-            Database.Item.RemoveAt(index);
-            EditorUtility.SetDirty(Database);
+            database.Item.RemoveAt(index);
+            EditorUtility.SetDirty(database);
         }
 
         public void Replace(int index, T item)
         {
-            Database.Item[index] = item;
-            EditorUtility.SetDirty(Database);
+            database.Item[index] = item;
+            EditorUtility.SetDirty(database);
         }
 
+    
 
         void LoadDatabase()
         {
-            string dbFullPath = @"Assets/" + DatabasePath + "/" + DatabaseName;
+            string dbFullPath = @"Assets/" + databasePath + "/" + databaseName;
             // Checks to see if folder exists O_O!
-            Database = AssetDatabase.LoadAssetAtPath(dbFullPath, typeof(D)) as D;
-            if (Database == null)
+            database = AssetDatabase.LoadAssetAtPath(dbFullPath, typeof(D)) as D;
+            if (database == null)
             {
                 CreateDatabase(dbFullPath);
             }
 
         }
 
+
         void CreateDatabase(string dbFullPath)
         {
-            if (!AssetDatabase.IsValidFolder("Assets/" + DatabasePath))
-                AssetDatabase.CreateFolder("Assets", DatabasePath);
+            if (!AssetDatabase.IsValidFolder("Assets/" + databasePath))
+                AssetDatabase.CreateFolder("Assets", databasePath);
 
-            Database = ScriptableObject.CreateInstance<D>() as D;
-            AssetDatabase.CreateAsset(Database, dbFullPath);
+            database = ScriptableObject.CreateInstance<D>() as D;
+            AssetDatabase.CreateAsset(database, dbFullPath);
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
         }

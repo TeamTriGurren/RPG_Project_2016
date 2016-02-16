@@ -7,19 +7,19 @@ namespace KyleBull.ItemSystem.Editor
 {
     public partial class ISObjectDatabaseType<D, T> where D : ScriptableObjectDatabase<T> where T : ISObject
     {
-        [SerializeField]private D Database;
-        [SerializeField]string DatabaseName;
-        [SerializeField]string DatabasePath = @"Database";
+        [SerializeField]private D database;
+        [SerializeField]string databaseName;
+        [SerializeField]string databasePath = @"Database";
 
         public ISObjectDatabaseType(string n)
         {
-            DatabaseName = n;
+            databaseName = n;
 
         }
 
         public void OnEnable()
         {
-            if (Database == null)
+            if (database == null)
             {
                 LoadDatabase();
             }
@@ -27,7 +27,8 @@ namespace KyleBull.ItemSystem.Editor
 
         public void OnGUI()
         {
-
+        //    ListView();
+          //  ItemDetails();
         }
     }
 }

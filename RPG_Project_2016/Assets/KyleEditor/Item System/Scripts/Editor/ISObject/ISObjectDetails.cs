@@ -10,8 +10,6 @@ namespace KyleBull.ItemSystem.Editor
 {
     public partial class ISObjectEditor
     {
-
-
         enum DisplyState
         {
             NONE,

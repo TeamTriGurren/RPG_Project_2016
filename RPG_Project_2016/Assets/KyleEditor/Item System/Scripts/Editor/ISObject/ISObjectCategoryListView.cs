@@ -8,19 +8,18 @@ using System.Collections;
 
 namespace KyleBull.ItemSystem.Editor
 {
-	public partial class ISObjectCategory
-	{
-
+    // public partial class ISObjectDatabaseType<D, T> where D : ScriptableObjectDatabase<T> where T : ISObject
+    //{
+    public partial class ISObjectCategory
+    {
         Vector2 _scrollPos = Vector2.zero;
         int _listViewWidth = 200;
         int _selectedIndex = -1;
         ISArmor tempArmor;
         bool showDetails = false;
-       
 
-
-        public void ListView ()
-		{
+        public void ListView()
+        {
             _scrollPos = GUILayout.BeginScrollView(_scrollPos, "Box", GUILayout.ExpandHeight(true), GUILayout.Width(_listViewWidth));
 
             for (int i = 0; i < Database.Count; i++)
@@ -29,11 +28,11 @@ namespace KyleBull.ItemSystem.Editor
                 {
                     _selectedIndex = i;
                     tempArmor = new ISArmor(Database.Get(i));
-                    showDetails = true;   
+                    showDetails = true;
                 }
             }
-     //       DisplayButtons();
+            //       DisplayButtons();
             EditorGUILayout.EndScrollView();
         }
-	}
+    }
 }
