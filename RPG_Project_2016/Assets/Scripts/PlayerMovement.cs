@@ -19,18 +19,21 @@ public class PlayerMovement : MonoBehaviour
     public GameObject MCamera;
     public GameObject CombatCamera;
 
+	public NPC npc; 
+	bool Dialog = false;
     void Start()
     {  
         secondCounter = Random.Range(10, 75);
         anim = GetComponent<Animator>();
+
     }
  
     void Update()
     {
+		GameObject dialog = GameObject.FindGameObjectWithTag("Dialog");
         if (isMoving)
             anim.SetTrigger("isMoving");
-       
-        if (!inCombat && !isTalking)
+        if (!inCombat)
         {
             if (!Input.anyKey)
             {
@@ -70,19 +73,39 @@ public class PlayerMovement : MonoBehaviour
                 GetComponent<Rigidbody2D>().transform.position += Vector3.right * speed * Time.deltaTime;
                 Direction = 2;
             }
-
+			if (Dialog) {
+				if (Input.GetKeyDown (KeyCode.Space)) {
+					Debug.Log ("Space Worked");
+					dialog.GetComponent<NPC>().Action();
+				}
+			}
         }
     }
 
 
     private void OnTriggerEnter2D(Collider2D Other)
     {
+		
         if (Other.gameObject.tag == "BattleArea")
         {
 			Debug.Log ("Battle Area.. Combat in.." + (secondCounter - walkCounter));
             walkCounter++;
         }
+		if (Other.gameObject.tag == "Dialog") {
+			Debug.Log ("In Action Range");
+			//NPC.Action ();
+			Dialog = true;
+		}
     }
+
+	private void OnTriggerExit2D(Collider2D Other)
+	{
+		if (Other.gameObject.tag == "Dialog") {
+			Debug.Log ("Leave Chat range");
+			//NPC.Action ();
+			Dialog = false;
+		}
+	}
 
     void calculateBattle()
     { 
