@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Teleporter : MonoBehaviour {
     public GameObject teleportLoc;
-    public int regionChange;
+    public string regionChange;
 	// Use this for initialization
 	void Start () {
 	

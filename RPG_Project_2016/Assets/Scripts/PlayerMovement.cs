@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public float speed = .25f;
     public bool isMoving = true;
-    public static bool isTalking = false;
-    public static int region = 0; 
+    public bool isTalking = false;
+    public static string region;
 
     Animator anim;
     // Waling Stuff
@@ -19,21 +20,34 @@ public class PlayerMovement : MonoBehaviour
     public GameObject MCamera;
     public GameObject CombatCamera;
 
-	public NPC npc; 
-	bool Dialog = false;
+	public bool Dialog = false;
+
+    public float x, y;
+
+    private NPC npc;
+    public GameController gc;
+
+    void Awake()
+    {
+        region = "TestRegion";
+    }
     void Start()
     {  
         secondCounter = Random.Range(10, 75);
         anim = GetComponent<Animator>();
-
+        
     }
  
     void Update()
     {
-		GameObject dialog = GameObject.FindGameObjectWithTag("Dialog");
+        GameObject npcscript = GameObject.Find("Dialog");
+        NPC nScript = npcscript.GetComponent<NPC>();
+        x = transform.position.x;
+        y = transform.position.y;
+
         if (isMoving)
             anim.SetTrigger("isMoving");
-        if (!inCombat)
+        if (!inCombat || !isTalking)
         {
             if (!Input.anyKey)
             {
@@ -76,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 			if (Dialog) {
 				if (Input.GetKeyDown (KeyCode.Space)) {
 					Debug.Log ("Space Worked");
-					dialog.GetComponent<NPC>().Action();
+                    nScript.Action();
 				}
 			}
         }
@@ -118,7 +132,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void enterCombat()
-    { 
+    {
+        gc.randomizeMonster();
         inCombat = true;
         MCamera.SetActive(false);
         CombatCamera.SetActive(true);
