@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Start()
     {  
-        secondCounter = Random.Range(10, 75);
+        secondCounter = Random.Range(10, 50);
         anim = GetComponent<Animator>();
         
     }
@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
     { 
             if (walkCounter >= secondCounter)
             {
-                secondCounter = Random.Range(5, 75);
+                secondCounter = Random.Range(5, 50);
                 walkCounter = 0;        
                 enterCombat();
             } 
