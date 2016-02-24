@@ -137,44 +137,9 @@ public class PlayerMovement : MonoBehaviour
         inCombat = true;
         MCamera.SetActive(false);
         CombatCamera.SetActive(true);
-        Debug.Log("Combat.");
+      //  Debug.Log("Combat. " + GameController.enemyMonster.Name);
     }
 
 
-    //Animator anim;
-    //public float maxSpeed = 10f;
-    //bool facingRight = true;
-    //bool facingUp = true;
-
-    //void Start()
-    //{
-    //    anim = GetComponent<Animator>();
-    //}
-
-    //// Update is called once per frame
-    //void FixedUpdate()
-    //{
-
-    //    float move = Input.GetAxis("Horizontal");
-    //    float moveUp = Input.GetAxis("Vertical");
-
-    //    anim.SetFloat("input_x", Mathf.Abs(move));
-    //    anim.SetFloat("input_y", Mathf.Abs(moveUp));
-
-    //    GetComponent<Rigidbody2D>().velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-    //    if (move > 0 && !facingRight)
-    //        Flip();
-    //    else if (move < 0 && facingRight)
-    //        Flip();
-
-    //}
-
-    //void Flip()
-    //{
-    //    facingRight = !facingRight;
-    //    Vector3 theScale = transform.localScale;
-    //    theScale.x *= -1;
-    //    transform.localScale = theScale;
-    //}
+    
 }
