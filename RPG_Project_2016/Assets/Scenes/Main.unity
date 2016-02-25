@@ -795,7 +795,7 @@ Transform:
   - {fileID: 503227091}
   - {fileID: 102710619}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &121821877
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,12 +1067,12 @@ MonoBehaviour:
   speed: 0.5
   isMoving: 1
   isTalking: 0
+  lastMove: {x: 0, y: 0}
   MCamera: {fileID: 1076623824}
   CombatCamera: {fileID: 563689709}
   Dialog: 0
-  x: 0
-  y: 0
   gc: {fileID: 133143512}
+  bc: {fileID: 0}
 --- !u!212 &133143509
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1112,10 +1112,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.697, y: 0.308, z: -0.637}
   m_LocalScale: {x: 1, y: 1, z: 5}
-  m_Children:
-  - {fileID: 1076623829}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!95 &133143511
 Animator:
   serializedVersion: 3
@@ -3253,7 +3252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5325,7 +5324,7 @@ RectTransform:
   m_Children:
   - {fileID: 1814557771}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -5789,7 +5788,7 @@ RectTransform:
   - {fileID: 426734160}
   - {fileID: 1292325403}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -7887,7 +7886,7 @@ MonoBehaviour:
   Columns: 20
   TileWidth: 0.32
   TileHeight: 0.32
-  MarkerPosition: {x: 7.4614735, y: 0.001901418, z: 0}
+  MarkerPosition: {x: 1.3814735, y: 0.001901418, z: 0}
 --- !u!4 &1047865155
 Transform:
   m_ObjectHideFlags: 0
@@ -7964,7 +7963,7 @@ Transform:
   - {fileID: 262086271}
   - {fileID: 960854071}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1001 &1070197714
 Prefab:
   m_ObjectHideFlags: 0
@@ -8093,11 +8092,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1076623824}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.423, y: -0.071, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 2.1200001, y: 0.23699999, z: -5.637}
+  m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children: []
-  m_Father: {fileID: 133143510}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!114 &1076623830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8106,14 +8105,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1076623824}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6047c322a45aae14b99027baa5fb5642, type: 3}
+  m_Script: {fileID: 11500000, guid: 8516c81fdf41ab6418f0fe8ba9fdf78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rows: 10
-  Columns: 20
-  TileWidth: 1
-  TileHeight: 1
-  MarkerPosition: {x: 11.62, y: 5.737, z: -5.637}
+  followTarget: {fileID: 133143506}
+  moveSpeed: 5
 --- !u!1 &1080211645
 GameObject:
   m_ObjectHideFlags: 0
@@ -8726,7 +8722,7 @@ Transform:
   m_Children:
   - {fileID: 1936200540}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1001 &1209322799
 Prefab:
   m_ObjectHideFlags: 0
@@ -10453,7 +10449,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!114 &1523375126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11202,7 +11198,7 @@ RectTransform:
   m_Children:
   - {fileID: 381999357}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -13696,7 +13692,7 @@ Transform:
   m_Children:
   - {fileID: 1801302072}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!1001 &1971213844
 Prefab:
   m_ObjectHideFlags: 0
@@ -13855,7 +13851,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!61 &1987895905
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14070,7 +14066,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!61 &2039700013
 BoxCollider2D:
   m_ObjectHideFlags: 0

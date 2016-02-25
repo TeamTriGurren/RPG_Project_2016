@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isMoving = true;
     public bool isTalking = false;
     public static string region;
+    public Vector2 lastMove;
 
     Animator anim;
     // Waling Stuff
@@ -22,10 +23,11 @@ public class PlayerMovement : MonoBehaviour
 
 	public bool Dialog = false;
 
-    public float x, y;
+   
 
     private NPC npc;
     public GameController gc;
+    public BattleController bc;
 
     void Awake()
     {
@@ -42,52 +44,33 @@ public class PlayerMovement : MonoBehaviour
     {
         GameObject npcscript = GameObject.Find("Dialog");
         NPC nScript = npcscript.GetComponent<NPC>();
-        x = transform.position.x;
-        y = transform.position.y;
 
-        if (isMoving)
-            anim.SetTrigger("isMoving");
+        isMoving = false;
+        calculateBattle();
         if (!inCombat || !isTalking)
         {
-            if (!Input.anyKey)
+            
+            if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
             {
-                isMoving = false;
-                anim.ResetTrigger("isMoving");
-                
-            }
-            if (Input.GetKey("w"))
-            {
+                transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, 0f, 0f));
+                lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
                 isMoving = true;
-                calculateBattle();
-                anim.SetInteger("Direction", 1);
-                GetComponent<Rigidbody2D>().transform.position += Vector3.up * speed * Time.deltaTime;
-                Direction = 1;
             }
-            if (Input.GetKey("s"))
+
+            if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
             {
-                calculateBattle();
-                anim.SetInteger("Direction", 3); 
-                isMoving = true;        
-                GetComponent<Rigidbody2D>().transform.position += Vector3.down * speed * Time.deltaTime;
-                Direction =3;
-            }
-            if (Input.GetKey("a"))
-            {
-                anim.SetInteger("Direction", 4);
-                calculateBattle();   
+                transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * speed * Time.deltaTime, 0f));
+                lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
                 isMoving = true;
-                GetComponent<Rigidbody2D>().transform.position += Vector3.left * speed * Time.deltaTime;
-                Direction=4;
             }
-            if (Input.GetKey("d"))
-            {
-                anim.SetInteger("Direction", 2);
-                calculateBattle();         
-                isMoving = true;
-                GetComponent<Rigidbody2D>().transform.position += Vector3.right * speed * Time.deltaTime;
-                Direction = 2;
-            }
-			if (Dialog) {
+
+            anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
+            anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
+            anim.SetBool("isMoving", isMoving);
+            anim.SetFloat("LastMoveX", lastMove.x);
+            anim.SetFloat("LastMoveY", lastMove.y);
+
+            if (Dialog) {
 				if (Input.GetKeyDown (KeyCode.Space)) {
 					Debug.Log ("Space Worked");
                     nScript.Action();
@@ -134,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
     void enterCombat()
     {
         gc.randomizeMonster();
+        bc.Start();
         inCombat = true;
         MCamera.SetActive(false);
         CombatCamera.SetActive(true);
