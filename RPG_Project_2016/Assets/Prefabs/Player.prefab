@@ -1,155 +1,78 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &106450
+--- !u!1 &179860
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 454620}
-  - 20: {fileID: 2064870}
-  - 92: {fileID: 9229146}
-  - 124: {fileID: 12428254}
-  - 81: {fileID: 8151014}
-  m_Layer: 8
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &148528
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 477914}
-  - 212: {fileID: 21252204}
-  - 114: {fileID: 11483306}
-  - 95: {fileID: 9538484}
-  - 50: {fileID: 5096454}
-  - 61: {fileID: 6173498}
-  m_Layer: 8
+  - 4: {fileID: 401890}
+  - 212: {fileID: 21274262}
+  - 114: {fileID: 11442552}
+  - 50: {fileID: 5099408}
+  - 61: {fileID: 6197130}
+  - 95: {fileID: 9540714}
+  - 114: {fileID: 11443018}
+  - 114: {fileID: 11435730}
+  - 114: {fileID: 11476248}
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &454620
+--- !u!4 &401890
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106450}
+  m_GameObject: {fileID: 179860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.697, y: 0.308, z: -0.637}
+  m_LocalScale: {x: 1, y: 1, z: 5}
   m_Children: []
-  m_Father: {fileID: 477914}
-  m_RootOrder: 0
---- !u!4 &477914
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148528}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 5}
-  m_Children:
-  - {fileID: 454620}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!20 &2064870
-Camera:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106450}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.48235297, g: 0.6784314, b: 0.17254902, a: 0.019607844}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 0.39612538
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
---- !u!50 &5096454
+--- !u!50 &5099408
 Rigidbody2D:
   serializedVersion: 2
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148528}
+  m_GameObject: {fileID: 179860}
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &6173498
+--- !u!61 &6197130
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148528}
+  m_GameObject: {fileID: 179860}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: -0.0012483001, y: -0.05}
+  m_Offset: {x: 0.0020096302, y: -0.019803494}
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
---- !u!81 &8151014
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106450}
-  m_Enabled: 1
---- !u!92 &9229146
-Behaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106450}
-  m_Enabled: 1
---- !u!95 &9538484
+  m_Size: {x: 0.25166765, y: 0.23558927}
+--- !u!95 &9540714
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148528}
+  m_GameObject: {fileID: 179860}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: be77e0ce290cc124c83cc8ea5f229f04, type: 2}
@@ -160,34 +83,248 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11483306
+--- !u!114 &11435730
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148528}
+  m_GameObject: {fileID: 179860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa7c8c868e7ed6b47b8b99b053a08fd6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e1ab023e929dd447adaac54a333bedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.25
-  isMoving: 0
-  MCamera: {fileID: 106450}
-  CombatCamera: {fileID: 0}
---- !u!124 &12428254
-Behaviour:
+  health: 0
+  exp: 0
+  AllMonsters:
+  - baseHP: 10
+    curHP: 10
+    baseATK: 2
+    curATK: 2
+    baseDEF: 3
+    curDEF: 3
+    baseSPATK: 0
+    curSPATK: 0
+    baseSPDEF: 1
+    curSPDEF: 1
+    speed: 2
+    name: TestMonster1
+    level: 1
+    regionLocated: TestRegion
+    rarity: 0
+    monsterNumber: 1
+    sprite: {fileID: 0}
+    ability: []
+  - baseHP: 13
+    curHP: 13
+    baseATK: 2
+    curATK: 2
+    baseDEF: 3
+    curDEF: 3
+    baseSPATK: 1
+    curSPATK: 1
+    baseSPDEF: 3
+    curSPDEF: 3
+    speed: 2
+    name: TestMonster2
+    level: 1
+    regionLocated: TestRegion
+    rarity: 0
+    monsterNumber: 2
+    sprite: {fileID: 0}
+    ability: []
+  - baseHP: 0
+    curHP: 0
+    baseATK: 0
+    curATK: 0
+    baseDEF: 0
+    curDEF: 0
+    baseSPATK: 0
+    curSPATK: 0
+    baseSPDEF: 0
+    curSPDEF: 0
+    speed: 0
+    name: 
+    level: 0
+    regionLocated: 
+    rarity: 0
+    monsterNumber: 0
+    sprite: {fileID: 0}
+    ability: []
+  - baseHP: 0
+    curHP: 0
+    baseATK: 0
+    curATK: 0
+    baseDEF: 0
+    curDEF: 0
+    baseSPATK: 0
+    curSPATK: 0
+    baseSPDEF: 0
+    curSPDEF: 0
+    speed: 0
+    name: 
+    level: 0
+    regionLocated: 
+    rarity: 0
+    monsterNumber: 0
+    sprite: {fileID: 0}
+    ability: []
+  - baseHP: 0
+    curHP: 0
+    baseATK: 0
+    curATK: 0
+    baseDEF: 0
+    curDEF: 0
+    baseSPATK: 0
+    curSPATK: 0
+    baseSPDEF: 0
+    curSPDEF: 0
+    speed: 0
+    name: 
+    level: 0
+    regionLocated: 
+    rarity: 0
+    monsterNumber: 0
+    sprite: {fileID: 0}
+    ability: []
+  enemyMonster:
+    baseHP: 0
+    curHP: 0
+    baseATK: 0
+    curATK: 0
+    baseDEF: 0
+    curDEF: 0
+    baseSPATK: 0
+    curSPATK: 0
+    baseSPDEF: 0
+    curSPDEF: 0
+    speed: 0
+    name: 
+    level: 0
+    regionLocated: 
+    rarity: 0
+    monsterNumber: 0
+    sprite: {fileID: 0}
+    ability: []
+  monsterEquipped:
+    baseHP: 4
+    curHP: 4
+    baseATK: 4
+    curATK: 4
+    baseDEF: 4
+    curDEF: 4
+    baseSPATK: 4
+    curSPATK: 4
+    baseSPDEF: 4
+    curSPDEF: 4
+    speed: 4
+    name: four
+    level: 4
+    regionLocated: TestRegion
+    rarity: 0
+    monsterNumber: 3
+    sprite: {fileID: 0}
+    ability:
+    - name: Pond
+  reg: 
+--- !u!114 &11442552
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 106450}
+  m_GameObject: {fileID: 179860}
   m_Enabled: 1
---- !u!212 &21252204
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d7da1717b23f64c89a039c803343f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  isMoving: 1
+  isTalking: 0
+  lastMove: {x: 0, y: 0}
+  MCamera: {fileID: 0}
+  CombatCamera: {fileID: 0}
+  Dialog: 0
+  gc: {fileID: 11435730}
+  bc: {fileID: 0}
+--- !u!114 &11443018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10839d1c78d98864e9f9c5f2774d285c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11442552}
+  Menu: {fileID: 0}
+  pauseGame: 0
+  mainMenu: 
+--- !u!114 &11476248
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a2b9afea082f3f4ca479ead8411b85f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BattleUI: {fileID: 0}
+  PlayerName: {fileID: 0}
+  monsterEquipped:
+    baseHP: 0
+    curHP: 0
+    baseATK: 0
+    curATK: 0
+    baseDEF: 0
+    curDEF: 0
+    baseSPATK: 0
+    curSPATK: 0
+    baseSPDEF: 0
+    curSPDEF: 0
+    speed: 0
+    name: 
+    level: 0
+    regionLocated: 
+    rarity: 0
+    monsterNumber: 0
+    sprite: {fileID: 0}
+    ability: []
+  AllMonsters: []
+  enemyMonster:
+    baseHP: 0
+    curHP: 0
+    baseATK: 0
+    curATK: 0
+    baseDEF: 0
+    curDEF: 0
+    baseSPATK: 0
+    curSPATK: 0
+    baseSPDEF: 0
+    curSPDEF: 0
+    speed: 0
+    name: 
+    level: 0
+    regionLocated: 
+    rarity: 0
+    monsterNumber: 0
+    sprite: {fileID: 0}
+    ability: []
+  attack:
+  - name: Tackle
+  - name: Pound
+  moveName: {fileID: 0}
+  moveN: {fileID: 0}
+--- !u!212 &21274262
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148528}
+  m_GameObject: {fileID: 179860}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -207,7 +344,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 1a54c2cf463505b4bb4f5fa39dc1ecf6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -221,5 +358,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 148528}
+  m_RootGameObject: {fileID: 179860}
   m_IsPrefabParent: 1

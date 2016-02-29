@@ -1,25 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Teleporter : MonoBehaviour {
-    public GameObject teleportLoc;
-    public string regionChange;
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    public string levelToLoad;
 
     private void OnTriggerEnter2D(Collider2D Other)
     {
         if (Other.gameObject.tag == "Player")
         {
-            Other.transform.position = teleportLoc.transform.position;
-            PlayerMovement.region = regionChange;
+            SceneManager.LoadScene(levelToLoad);
         }
     }
 

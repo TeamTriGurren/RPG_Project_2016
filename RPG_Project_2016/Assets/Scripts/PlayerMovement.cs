@@ -4,65 +4,91 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement player;
     public float speed = .25f;
     public bool isMoving = true;
-    public bool isTalking = false;
+    public bool isTalking;
     public static string region;
     public Vector2 lastMove;
-
+    private bool attacking;
+    public float attackTime;
+    public float attackTimeCounter;
     Animator anim;
-    // Waling Stuff
-    int walkCounter;
-    int secondCounter;
-    bool inCombat;
-    public static int Direction = 1 ;
+    private Rigidbody2D myRigidbody;
 
     //Camera shit
     public GameObject MCamera;
-    public GameObject CombatCamera;
-
 	public bool Dialog = false;
-
-   
-
-    private NPC npc;
-    public GameController gc;
-    public BattleController bc;
+   // public BattleController bc;
 
     void Awake()
     {
         region = "TestRegion";
+        if ( player == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            player = this;
+        }
+        else if ( player != this)
+        {
+            Destroy(gameObject);
+        }
+      //  DontDestroyOnLoad(transform.gameObject);
     }
     void Start()
     {  
-        secondCounter = Random.Range(10, 50);
         anim = GetComponent<Animator>();
-        
+        myRigidbody = GetComponent<Rigidbody2D>();
     }
  
     void Update()
     {
         GameObject npcscript = GameObject.Find("Dialog");
-        NPC nScript = npcscript.GetComponent<NPC>();
-
         isMoving = false;
-        calculateBattle();
-        if (!inCombat || !isTalking)
+
+
+        if (!attacking)
         {
-            
+
             if (Input.GetAxisRaw("Horizontal") > 0.5f || Input.GetAxisRaw("Horizontal") < -0.5f)
             {
-                transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal") * speed * Time.deltaTime, 0f, 0f));
+
+                myRigidbody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * speed, myRigidbody.velocity.y);
                 lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
                 isMoving = true;
             }
 
             if (Input.GetAxisRaw("Vertical") > 0.5f || Input.GetAxisRaw("Vertical") < -0.5f)
             {
-                transform.Translate(new Vector3(0f, Input.GetAxisRaw("Vertical") * speed * Time.deltaTime, 0f));
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, Input.GetAxisRaw("Vertical") * speed);
                 lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
                 isMoving = true;
             }
+            if (Input.GetAxisRaw("Horizontal") < 0.5f && Input.GetAxisRaw("Horizontal") > -0.5f)
+                myRigidbody.velocity = new Vector2(0f, myRigidbody.velocity.y);
+            if (Input.GetAxisRaw("Vertical") < 0.5f && Input.GetAxisRaw("Vertical") > -0.5f)
+                myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0f);
+
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                attackTimeCounter = attackTime;
+                attacking = true;
+                myRigidbody.velocity = Vector2.zero;
+                anim.SetBool("Attacking", true);
+            }
+
+        }
+
+        if(attackTimeCounter > 0)
+        {
+            attackTimeCounter -= Time.deltaTime;
+        }
+
+        if(attackTimeCounter <= 0)
+        {
+            attacking = false;
+            anim.SetBool("Attacking", false);
+        }
 
             anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal"));
             anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));
@@ -73,10 +99,9 @@ public class PlayerMovement : MonoBehaviour
             if (Dialog) {
 				if (Input.GetKeyDown (KeyCode.Space)) {
 					Debug.Log ("Space Worked");
-                    nScript.Action();
 				}
 			}
-        }
+        
     }
 
 
@@ -85,8 +110,7 @@ public class PlayerMovement : MonoBehaviour
 		
         if (Other.gameObject.tag == "BattleArea")
         {
-			Debug.Log ("Battle Area.. Combat in.." + (secondCounter - walkCounter));
-            walkCounter++;
+			
         }
 		if (Other.gameObject.tag == "Dialog") {
 			Debug.Log ("In Action Range");
@@ -102,28 +126,5 @@ public class PlayerMovement : MonoBehaviour
 			//NPC.Action ();
 			Dialog = false;
 		}
-	}
-
-    void calculateBattle()
-    { 
-            if (walkCounter >= secondCounter)
-            {
-                secondCounter = Random.Range(5, 50);
-                walkCounter = 0;        
-                enterCombat();
-            } 
-    }
-
-    void enterCombat()
-    {
-        gc.randomizeMonster();
-        bc.Start();
-        inCombat = true;
-        MCamera.SetActive(false);
-        CombatCamera.SetActive(true);
-      //  Debug.Log("Combat. " + GameController.enemyMonster.Name);
-    }
-
-
-    
+	}  
 }
