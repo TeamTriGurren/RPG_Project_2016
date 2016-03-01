@@ -75,6 +75,7 @@ GameObject:
   - 4: {fileID: 461456}
   - 212: {fileID: 21212252}
   - 114: {fileID: 11461220}
+  - 61: {fileID: 6110710}
   m_Layer: 0
   m_Name: Sword_4
   m_TagString: Untagged
@@ -100,6 +101,21 @@ GameObject:
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &188592
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 423006}
+  m_Layer: 0
+  m_Name: HitPoint
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,6 +161,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 401890}
   m_RootOrder: 2
+--- !u!4 &423006
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188592}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.001, y: 0.13, z: -0.75}
+  m_LocalScale: {x: 1, y: 1, z: 5}
+  m_Children: []
+  m_Father: {fileID: 481478}
+  m_RootOrder: 0
 --- !u!4 &427476
 Transform:
   m_ObjectHideFlags: 1
@@ -175,10 +203,11 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 175070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.9999731, w: -0.0073303957}
   m_LocalPosition: {x: -0.072, y: -0.112, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 0.2}
-  m_Children: []
+  m_Children:
+  - {fileID: 423006}
   m_Father: {fileID: 401890}
   m_RootOrder: 0
 --- !u!50 &5099408
@@ -198,6 +227,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!61 &6110710
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 179330}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 0.16, y: 0.11}
 --- !u!61 &6197130
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -315,9 +358,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb5ff9623872b4439651b55760b4ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageOfWeapon: 1
+  damageOfWeapon: 4
   damageBurst: {fileID: 158272, guid: ab5b416f66d7f5048838df70e910359e, type: 2}
-  hitPoint: {fileID: 0}
+  hitPoint: {fileID: 423006}
 --- !u!212 &21212252
 SpriteRenderer:
   m_ObjectHideFlags: 1

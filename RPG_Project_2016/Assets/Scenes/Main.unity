@@ -10361,6 +10361,14 @@ Prefab:
       propertyPath: Menu
       value: 
       objectReference: {fileID: 1658709253}
+    - target: {fileID: 6110710, guid: c91693a706f2e2b4aa409089beea597e, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442552, guid: c91693a706f2e2b4aa409089beea597e, type: 2}
+      propertyPath: attackTime
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c91693a706f2e2b4aa409089beea597e, type: 2}
   m_IsPrefabParent: 0
