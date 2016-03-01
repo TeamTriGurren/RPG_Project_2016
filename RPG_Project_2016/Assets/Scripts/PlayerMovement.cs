@@ -17,9 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D myRigidbody;
 
     //Camera shit
-    public GameObject MCamera;
 	public bool Dialog = false;
    // public BattleController bc;
+
 
     void Awake()
     {
